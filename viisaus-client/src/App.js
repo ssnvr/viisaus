@@ -8,6 +8,7 @@ import Post from './Components/Post';
 import Login from './Components/Login';
 import Create from './Components/Create';
 import PostList from './Components/PostList';
+import {addNewMessage, getMessages} from './ServiceDesk';
 
 
 class App extends Component {
@@ -34,6 +35,18 @@ class App extends Component {
     }
   }
 
+  getMessagesAndUpdate=()=>{
+    getMessages(function (list){
+      this.setState({data: list});
+    }.bind(this));
+  } //tämäkin on joku Annin hämärä funktio
+   
+  addMessage= (msg)=>{
+    addNewMessage(msg, function (){
+      this.getMessagesAndUpdate();
+    }.bind(this));
+  } //viesti ei lähety koska this.props.addMessage is not a function lol
+
 
   render() {
     return (
@@ -48,7 +61,7 @@ class App extends Component {
         <Message/>
 
         <Create />*/}
-        <PostList data={this.state.data} handleVote={this.handleVote}/>
+        <PostList data={this.state.data} handleVote={this.handleVote} addMessage={this.addMessage}/>
 
 
       </div>
