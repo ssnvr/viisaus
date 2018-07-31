@@ -11,6 +11,12 @@ import PostList from './Components/PostList';
 
 
 class App extends Component {
+  state = {
+    data: [],
+    activeUser: null,
+    activeMood: null,
+  }
+
   componentDidMount() {
     fetch("/api/posts/")
       .then( res => res.json() )
@@ -20,19 +26,30 @@ class App extends Component {
         });
       });
   }
-  // addMessage = (newMessage) =>{
-  //   createMessage()
-  // }
+
+  handleVote(e) {
+    console.log(e.currentTarget);
+    if (e.currentTarget.dataset.votedirection === "up") {
+      console.log("lol")
+    }
+  }
+
+
   render() {
     return (
       <div className="App">
 
-        {/* <Valikko /> */}
+        {/* <Valikko />
         <Post />
         <Login />
+
         <Create />
         <PostList/>
         <Message/>
+
+        <Create />*/}
+        <PostList data={this.state.data} handleVote={this.handleVote}/>
+
 
       </div>
     );

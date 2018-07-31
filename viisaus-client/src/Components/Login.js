@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
+
 class Login extends Component{
     state={nickname:'', password:''}
+
     nicknameChanged = (e) => {
         this.setState({nickname: e.target.value});
     }
