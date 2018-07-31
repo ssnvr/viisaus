@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-//import Vote from './Vote';
+import Vote from './Components/Vote';
 
 class Post extends Component{
     state={counter: '' }
-       
+
     render(){
         const{
             nickname,

@@ -4,6 +4,15 @@ import './App.css';
 import Post from './Post';
 
 class App extends Component {
+  componentDidMount() {
+    fetch("/api/posts/")
+      .then( res => res.json() )
+      .then( json => {
+        this.setState({
+          data: json,
+        });
+      });
+  }
   render() {
     return (
       <div className="App">
