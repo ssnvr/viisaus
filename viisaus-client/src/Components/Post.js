@@ -3,7 +3,6 @@ import Vote from './Vote';
 
 class Post extends Component{
     state={counter: '' }
-
     
     //emojiasia
 
@@ -19,7 +18,7 @@ class Post extends Component{
                 <p>{nickname}</p>
                 <p>{posttext}</p>
                 <Vote/>
-                <p>Tykkäykset: {this.state.counter}</p>
+                <p>Likes: {this.state.counter}</p>
                 </div>
         );
 
