@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Create from './Create';
-
 
 class Login extends Component{
     state={nickname:'', password:''}

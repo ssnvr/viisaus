@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import Valikko from './viisaus-client/src/Valikko';
+// import Valikko from './Components/Valikko';
 
 import Post from './Components/Post';
 import Login from './Components/Login';
 import Create from './Components/Create';
+import PostList from './Components/PostList';
 
 
 class App extends Component {
@@ -22,11 +23,11 @@ class App extends Component {
     return (
       <div className="App">
 
-    
-        <Post/>
-        <Login/>
-        <Create/>
-            
+        {/* <Valikko /> */}
+        <Post />
+        <Login />
+        <Create />
+        <PostList/>
 
       </div>
     );
