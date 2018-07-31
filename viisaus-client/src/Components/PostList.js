@@ -3,20 +3,21 @@ import Post from './Post';
 import '../App.css';
 
 class PostList extends Component {
-    state = { length: 0 };
-    howLong = () =>{
-        this.setState({length: event.target.value.length});
-    }
-        render() {
-    var messages = this.props.data
-        .map(function (post) {
-            return (<Post message={post.Message} key={post.Id} />);
-        });
+  render() {
+    const {
+      data,
+      handleVote
+    } = this.props;
+
+    let messages = data.map(function (post) {
+      return (<Post message={post.Message} key={post.Id} handleVote={handleVote}/>);
+    });
+    
     return (
-        <div className="postList">
-            {messages}
-        </div>
+      <div className="postList">
+        {messages}
+      </div>
     )
-}
+  }
 }
 export default PostList;
