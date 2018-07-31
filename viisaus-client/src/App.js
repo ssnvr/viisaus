@@ -20,6 +20,7 @@ class App extends Component {
     fetch("/api/posts/")
       .then( res => res.json() )
       .then( json => {
+        console.log('jee')
         this.setState({
           data: json,
         });

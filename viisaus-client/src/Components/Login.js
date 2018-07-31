@@ -13,18 +13,19 @@ class Login extends Component{
     //Tähän joku metodi millä katsellaan löytyykö databasesta annettuja tietoja.
     ready = (e) => {
         e.preventDefault();
-        this.props.foundInDatabase(this.state);
+        this.foundInDatabase();
         this.setState({nickname: '', password: ''});
     }
-
+   
     render(){
 
         return(
            
             <div>
+            <h5>Register</h5>    
             <form onSubmit={this.ready}>
-            Käyttäjätunnus: <input value={this.state.nickname} onChange={this.nicknameChanged}/> <br/>
-            Salasana: <input value={this.state.password} onChange={this.passwordChanged}/> 
+            Nickname: <input value={this.state.nickname} onChange={this.nicknameChanged}/> <br/>
+            Password: <input value={this.state.password} onChange={this.passwordChanged}/> 
             <input type="submit"/>
             </form>           
 
