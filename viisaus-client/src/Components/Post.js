@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-//import Vote from './Vote';
+import Vote from './Vote';
 
 class Post extends Component{
     state={counter: '' }
+    
+    //emojiasia
        
     render(){
         const{
