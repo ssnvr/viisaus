@@ -1,4 +1,6 @@
+
 ﻿// T4 code generation is enabled for model 'C:\Code\Viikko8\ProjektiViikko8\viisaus\viisaus-api\viisaus-api\Models\ViisausModel.edmx'. 
+
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
