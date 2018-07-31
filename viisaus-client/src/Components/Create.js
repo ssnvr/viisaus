@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class Create extends Component {
+
     state={nickname:'', password:''}
 
     CreateUser = () => {
@@ -21,11 +22,13 @@ class Create extends Component {
                 </form>
 
 
-
-
             </div>
 
         );
     }
+
 }
 export default Create;
+
+}
+

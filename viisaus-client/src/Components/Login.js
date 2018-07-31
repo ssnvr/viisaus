@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Create from './Create';
 
 
 class Login extends Component{
@@ -26,6 +27,7 @@ class Login extends Component{
             Salasana: <input value={this.state.password} onChange={this.passwordChanged}/> 
             <input type="submit"/>
             </form>           
+
             
             </div>
         );
