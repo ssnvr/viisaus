@@ -17,7 +17,7 @@ class Message extends Component {
     sendMessage = (e) => {
         e.preventDefault();
         this.checkLength();
-        this.props.writeMessage(this.state);
+        this.props.addMessage(this.state); //tässä on iso onglema 
         this.setState({ Message: '' });
     }
     render() {
