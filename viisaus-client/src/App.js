@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Vote from './Components/Vote';
 import './App.css';
 import Post from './Post';
 
@@ -7,7 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-        
+
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <Post/>
@@ -16,6 +17,7 @@ class App extends Component {
         </p>
         <p>lallalalalallaalall</p>
         <p> Moikkuli t. Anni</p>
+        <Vote/>
       </div>
     );
   }
