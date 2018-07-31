@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Message from './Components/Message';
 
 // import Valikko from './Components/Valikko';
 
@@ -33,6 +34,7 @@ class App extends Component {
     }
   }
 
+
   render() {
     return (
       <div className="App">
@@ -40,8 +42,14 @@ class App extends Component {
         {/* <Valikko />
         <Post />
         <Login />
+
+        <Create />
+        <PostList/>
+        <Message/>
+
         <Create />*/}
         <PostList data={this.state.data} handleVote={this.handleVote}/>
+
 
       </div>
     );

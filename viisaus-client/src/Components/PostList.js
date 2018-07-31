@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Post from './Post';
+import Message from './Message';
 import '../App.css';
 
 class PostList extends Component {
+
   render() {
     const {
       data,
@@ -21,3 +23,4 @@ class PostList extends Component {
   }
 }
 export default PostList;
+
