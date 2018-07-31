@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Message from './Components/Message';
 
 // import Valikko from './Components/Valikko';
 
@@ -19,6 +20,9 @@ class App extends Component {
         });
       });
   }
+  // addMessage = (newMessage) =>{
+  //   createMessage()
+  // }
   render() {
     return (
       <div className="App">
@@ -28,6 +32,7 @@ class App extends Component {
         <Login />
         <Create />
         <PostList/>
+        <Message/>
 
       </div>
     );
