@@ -14,6 +14,7 @@ import PostList from './Components/PostList';
 class App extends Component {
   state = {
     data: [],
+    udata:[],
     activeUser: null,
     activeMood: null,
   }
@@ -25,6 +26,16 @@ class App extends Component {
         console.log('jee')
         this.setState({
           data: json,
+        });
+      });
+  }
+  componentDidMount() {
+    fetch("/api/users/")
+      .then( res => res.json() )
+      .then( json => {
+        console.log('jee')
+        this.setState({
+          udata: json,
         });
       });
   }
@@ -64,6 +75,7 @@ class App extends Component {
         <Create />*/}
         {/* <PostList data={this.state.data} handleVote={this.handleVote} addMessage={this.addMessage}/> */}
         <PostList data={this.state.data} handleVote={this.handleVote} />
+        <Create udata={this.state.udata} />
 
 
       </div>
