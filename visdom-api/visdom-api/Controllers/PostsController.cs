@@ -7,6 +7,7 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Web.Http;
 using System.Web.Http.Description;
 using visdom_api.Models;
@@ -81,10 +82,29 @@ namespace visdom_api.Controllers
 
                 return BadRequest(ModelState);
             }
-            post.Emoijtag = "kakka";
-            post.Time = DateTime.Now;
-            db.Posts.Add(post);
+            //if (post.Message.Length > 160)
+            //{
+            //    StringBuilder sbTrim = new StringBuilder("");
+            //    var trimmaa = new HashSet<char>(post.Message.ToLower());
+            //    trimmaa.ExceptWith("aeiouyåäö ");
+            //    string trimmattu = "";
+            //    foreach (char v in trimmaa)
+            //    {
+            //        sbTrim.Append(v);
 
+            //    }
+            //    trimmattu = sbTrim.ToString();
+            //    post.Emoijtag = "jeejee";
+            //    post.Time = DateTime.Now;
+            //    post.Message = trimmattu;
+            //    db.Posts.Add(post);
+            //}
+            //else
+            //{
+                post.Emoijtag = "kakka";
+                post.Time = DateTime.Now;
+                db.Posts.Add(post);
+            //}
             try
             {
                 db.SaveChanges();
