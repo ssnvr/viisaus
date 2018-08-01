@@ -10,7 +10,7 @@ class Create extends Component {
         this.validator = new SimpleReactValidator();
     }
     
-    state = { name: '', password: '' }
+    state = { name: '', password: '', activeUser: null }
     nameChanged = (e) => {
 
         this.setState({ name: e.target.value });
@@ -40,7 +40,7 @@ class Create extends Component {
         e.preventDefault();
         this.checkLength();       
         this.addUser(this.state); 
-        this.setState({ name: '', password: '' });
+        this.setState({ name: '', password: '', activeUser: 'loggedIn' });
     }
     render() {
         return (
@@ -56,8 +56,6 @@ class Create extends Component {
 
                     <input className="nappi" type="submit" onClick={this.handleClick}/>
                 </form>
-
-
             </div>
 
         );

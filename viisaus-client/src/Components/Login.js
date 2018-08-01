@@ -3,8 +3,8 @@ import './Login.css'
 import { getUsers , getUser} from '../ServiceDesk';
 
 class Login extends Component {
-    state = { name: '', password: '', udata: [] }
-//Stateen vielä puuttuu että onko logattu sisään vai ei
+    state = { name: '', password: '', udata: [], activeUser: null }
+
     constructor(props){
         super(props)
         this.handleClick=this.handleClick.bind(this)
@@ -29,7 +29,7 @@ class Login extends Component {
     ready = (e) => {
         e.preventDefault();
         this.foundInDatabase();
-        this.setState({ name: '', password: '' });
+        this.setState({ name: '', password: '' , activeUser: true});
     }
 
     render() {
