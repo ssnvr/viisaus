@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
 import Post from './Post';
+import Message from './Message';
 import '../App.css';
 
 class PostList extends Component {
 
-    render() {
-        var viestit = this.props.viestit
-            .map(function (posttext) {
-                return (<Post posttext={posttext} key={posttext.id} />);
-            }.bind(this));
-        return (
-            <div className="postList">
-                {viestit}
-            </div>
-        )
-    }
+  render() {
+    const {
+      data,
+      handleVote
+    } = this.props;
+
+    let messages = data.map(function (post) {
+      return (<Post message={post.Message} key={post.Id} handleVote={handleVote}/>);
+    });
+    
+    return (
+      <div className="postList">
+        {messages}
+        <Message addMessage={this.addMessage}/>
+      </div>
+    )
+  }
 }
 export default PostList;
+
