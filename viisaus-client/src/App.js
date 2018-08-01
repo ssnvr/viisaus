@@ -17,15 +17,11 @@ class App extends Component {
     activeMood: null,
   }
 
-  // componentDidMount() {
-  //   fetch("/api/users/")
-  //     .then(res => res.json())
-  //     .then(json => {
-  //       console.log('users')
-  //       this.setState({
-  //         udata: json,
-  //       });
-  //     });
+
+  constructor(props) {
+    super(props)
+    this.activateUser = this.activateUser.bind(this);
+  }
 
   //   fetch("/api/posts/")
   //     .then(res => res.json())
@@ -37,27 +33,37 @@ class App extends Component {
   //     });
   // }
 
+  changeMood = (mood) => {
+    this.setState({
+      activeMood: mood,
+  })
+}
   handleVote(e) {
     console.log(e.currentTarget);
     if (e.currentTarget.dataset.votedirection === "up") {
       console.log("lol")
     }
   }
+  activateUser(user){
+    this.setState({
+      activeUser: user
+    })
+  }
 
   render() {
     return (
 //       <div className="App">
 
-//         {this.state.activeUser === null && <LandingPage />}
-//     </div > )
-//   }
-// }
-<div>
-    <Valikko /> 
-  <Message/>
-  </div>)}}
-  
-       { /* <Post />
+
+      <div className="App">
+       
+      {this.state.activeUser===null&&<LandingPage activateUser={this.activateUser}/>}
+
+      {this.state.activeUser != null && <Valikko changeMood={this.changeMood}/>} 
+      {this.state.activeMood != null && <PostList/>}
+      
+        {/* <Valikko />
+        <Post />
         <Login />
 
         <Create />
@@ -65,16 +71,21 @@ class App extends Component {
         <Message />
 
         <Create />
-        <PostList data={this.state.data} handleVote={this.handleVote} addMessage={this.addMessage} /> 
 
-    
-         <Post />
+        /* <PostList data={this.state.data} handleVote={this.handleVote} addMessage={this.addMessage}/> */
+
+        /* <Valikko />
+       
         <Login />
-        <Create />
-      
-        <Message data={this.state.data} />
-        <PostList data={this.state.data} handleVote={this.handleVote} />
-  <Create udata={this.state.udata} /> */}
-     
+        <Create /> */}
+        {/* <Message data={this.state.data} /> */}
+        {/* <PostList data={this.state.data} handleVote={this.handleVote} /> */}
+        {/* <Create udata={this.state.udata} /> */}
+
+      </div>
+    )
+  }
+}
+
 
 export default App;

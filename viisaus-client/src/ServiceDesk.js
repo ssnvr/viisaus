@@ -1,8 +1,8 @@
-//tein tämän tiedoston koska en osaa hahmottaa kun kaikki on app.js 
+//tein tämän tiedoston koska en osaa hahmottaa kun kaikki on app.js
 
 
 export function getMessages(callback) {
-    fetch( "api/posts")
+    fetch( "api/posts/")
         .then(function (response) {
             if (!response.ok) {
                 const errmsg = {
@@ -20,7 +20,7 @@ export function getMessages(callback) {
 }
 
 export function addNewMessage(msg, callback){
-    msg.user_id=1; 
+    msg.user_id=1;
     fetch( "api/posts/",{
      method: 'POST',
      headers: {'Content-Type': 'application/json'},
@@ -59,3 +59,21 @@ export function addNewUser(msg, callback){
      callback(response.status);
    });
  }
+ export function getUser(name, password, callback) {
+    fetch( "api/users/" + name + "/" + password)
+        .then(function (response) {
+          console.log(response)
+            if (!response.ok) {
+                const errmsg = {
+                    status: response.status,
+                    statusText: response.statusText,
+                    msg: "Käyttäjienhaku"
+                };
+                throw errmsg;
+            }
+            return response.json();
+        })
+        .then(function (user) {
+            callback(user);
+        });
+}

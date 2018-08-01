@@ -4,6 +4,8 @@ import Vote from './Vote';
 class Post extends Component{
   state={counter: '' }
 
+
+
   render(){
     const{
       message,
@@ -15,9 +17,9 @@ class Post extends Component{
         <p>{message}</p>
         <Vote handleVote={handleVote}/>
         <p>Tykkäykset: {this.state.counter}</p>
+        
       </div>
-    );
-    
+    );    
   }
 }
 export default Post;

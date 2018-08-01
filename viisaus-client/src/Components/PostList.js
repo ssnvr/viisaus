@@ -3,7 +3,7 @@ import Post from './Post';
 import Message from './Message';
 import '../App.css';
 
-class PostList extends Component {
+class PostList extends Component {   
 
     render() {
         const {
