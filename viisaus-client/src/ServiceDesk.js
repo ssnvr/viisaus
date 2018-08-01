@@ -59,3 +59,20 @@ export function addNewUser(msg, callback){
      callback(response.status);
    });
  }
+ export function getUser(name, password, callback) {
+    fetch( "api/users/" + name + "/" + password)
+        .then(function (response) {
+            if (!response.ok) {
+                const errmsg = {
+                    status: response.status,
+                    statusText: response.statusText,
+                    msg: "Käyttäjienhaku"
+                };
+                throw errmsg;
+            }
+            return response.json();
+        })
+        .then(function (user) {
+            callback(user);
+        });
+}

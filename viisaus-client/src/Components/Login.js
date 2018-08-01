@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Login.css'
-import { getUsers } from '../ServiceDesk';
+import { getUsers , getUser} from '../ServiceDesk';
 
 class Login extends Component {
     state = { name: '', password: '', udata: [] }
@@ -16,23 +16,12 @@ class Login extends Component {
         this.setState({ password: e.target.value })
     }
     foundInDatabase = () => {
-        getUsers(function (user) {
+        getUser(this.state.name, this.state.password, function (user) {
             this.setState({ udata: user });
-            this.find();
+            console.log("mahtia");
         }.bind(this));
     }
-    find = () => {
-        var things = this.state.udata;
-        things.forEach(element => {
-            if (element === this.state.name) {
-                things.forEach(a => {
-                    if (a === this.state.password) {
-                        console.log("Oikeesti");
-                    }
-                });
-        }
-        });
-    }
+    
     handleClick = (e) => {
         this.props.changeRegistered()
     }

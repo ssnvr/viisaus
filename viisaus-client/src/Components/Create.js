@@ -10,7 +10,6 @@ class Create extends Component {
         this.validator = new SimpleReactValidator();
     }
     
-
     state = { name: '', password: '' }
     nameChanged = (e) => {
 

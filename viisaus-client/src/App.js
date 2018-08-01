@@ -38,6 +38,11 @@ class App extends Component {
       });
   }
 
+  changeMood = (mood) => {
+    this.setState({
+      activeMood: mood,
+  })
+}
   handleVote(e) {
     console.log(e.currentTarget);
     if (e.currentTarget.dataset.votedirection === "up") {
@@ -51,6 +56,8 @@ class App extends Component {
       <div className="App">
 
       {this.state.activeUser===null&&<LandingPage/>}
+
+       <Valikko changeMood={this.changeMood}/>
         {/* <Valikko />
         <Post />
         <Login />
@@ -66,9 +73,10 @@ class App extends Component {
         <Post />
         <Login />
         <Create /> */}
-        <Message data={this.state.data} />
-         <PostList data={this.state.data} handleVote={this.handleVote} /> 
-        <Create udata={this.state.udata} />
+        {/* <Message data={this.state.data} /> */}
+        {/* <PostList data={this.state.data} handleVote={this.handleVote} /> */}
+        {/* <Create udata={this.state.udata} /> */}
+
 
 
       </div>
