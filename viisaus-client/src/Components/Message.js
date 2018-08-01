@@ -20,6 +20,7 @@ class Message extends Component {
         getMessages(function (list) {
             this.setState({ data: list });
         }.bind(this));
+        console.log("mitä");
     } //tämäkin on joku Annin hämärä funktio
 
     addMessage = (msg) => {
