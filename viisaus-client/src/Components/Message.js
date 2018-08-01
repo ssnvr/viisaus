@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {getMessages, addNewMessage} from '../ServiceDesk';
 
 class Message extends Component {
-    state = { Message: '', data: ''};
+    state = { Message: ''};
 
     messageCreated = (e) => {
         this.setState({ Message: e.target.value });
