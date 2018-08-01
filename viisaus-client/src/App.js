@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-
 import Valikko from './Components/Valikko';
-
 import Post from './Components/Post';
 import Login from './Components/Login';
 import Create from './Components/Create';
 import PostList from './Components/PostList';
 import { addNewMessage, getMessages } from './ServiceDesk';
+import LandingPage from './Components/LandingPage';
 import Message from './Components/Message';
-
-
 
 
 class App extends Component {
@@ -41,7 +38,6 @@ class App extends Component {
       });
   }
 
-
   handleVote(e) {
     console.log(e.currentTarget);
     if (e.currentTarget.dataset.votedirection === "up") {
@@ -53,6 +49,22 @@ class App extends Component {
     return (
 
       <div className="App">
+
+      {this.state.activeUser===null&&<LandingPage/>}
+        {/* <Valikko />
+        <Post />
+        <Login />
+
+        <Create />
+        <PostList/>
+        <Message/>
+
+
+        <Create />
+        <PostList data={this.state.data} handleVote={this.handleVote} addMessage={this.addMessage}/>
+        <PostList data={this.state.data} handleVote={this.handleVote} />
+        <Create udata={this.state.udata} /> */}
+
         {/* <Valikko />
         <Post />
         <Login />
@@ -60,6 +72,7 @@ class App extends Component {
         <Message data={this.state.data} />
         {/* <PostList data={this.state.data} handleVote={this.handleVote} /> */}
         <Create udata={this.state.udata} />
+
 
       </div>
     )

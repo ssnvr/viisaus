@@ -92,6 +92,8 @@ namespace visdom_api.Controllers
         [ResponseType(typeof(User))]
         public IHttpActionResult PostUser(User user)
         {
+            user.PasswordSalt = "suola";
+            
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

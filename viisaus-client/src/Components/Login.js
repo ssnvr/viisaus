@@ -1,38 +1,64 @@
 import React, { Component } from 'react';
+import { getUsers } from '../ServiceDesk';
 
-
-class Login extends Component{
-    state={nickname:'', password:''}
-
-    nicknameChanged = (e) => {
-        this.setState({nickname: e.target.value});
+class Login extends Component {
+    state = { name: '', password: '', udata: [] }
+//Stateen vielä puuttuu että onko logattu sisään vai ei
+    constructor(props){
+        super(props)
+        this.handleClick=this.handleClick.bind(this)
+    }
+    nameChanged = (e) => {
+        this.setState({ name: e.target.value });
     }
     passwordChanged = (e) => {
-        this.setState({password: e.target.value})
+        this.setState({ password: e.target.value })
     }
-    //Tähän joku metodi millä katsellaan löytyykö databasesta annettuja tietoja.
+    foundInDatabase = () => {
+        getUsers(function (user) {
+            this.setState({ udata: user });
+            this.find();
+        }.bind(this));
+    }
+    find = () => {
+        var things = this.state.udata;
+        things.forEach(element => {
+            if (element === this.state.name) {
+                things.forEach(a => {
+                    if (a === this.state.password) {
+                        console.log("Oikeesti");
+                    }
+                });
+        }
+        });
+    }
+    handleClick = (e) => {
+        this.props.changeRegistered()
+    }
+
     ready = (e) => {
         e.preventDefault();
         this.foundInDatabase();
-        this.setState({nickname: '', password: ''});
+        this.setState({ name: '', password: '' });
     }
-   
-    render(){
 
-        return(
-           
+    render() {
+
+        return (
+
             <div>
-            <h5>Register</h5>    
-            <form onSubmit={this.ready}>
-            Nickname: <input value={this.state.nickname} onChange={this.nicknameChanged}/> <br/>
-            Password: <input value={this.state.password} onChange={this.passwordChanged}/> 
-            <input type="submit"/>
-            </form>           
+                <h5>Login</h5>
+                <form onSubmit={this.ready}>
+                    Nickname: <input value={this.state.name} onChange={this.nameChanged} /> <br />
+                    Password: <input value={this.state.password} onChange={this.passwordChanged} />
+                    <input type="submit" />
+                </form>
 
-            
+                <p onClick={this.handleClick}>Create new account</p>
+
             </div>
         );
-        
+
     }
 }
 export default Login;
