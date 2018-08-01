@@ -14,6 +14,11 @@ namespace visdom_api
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+
+            config.Routes.MapHttpRoute(
+                name: "Validation",
+                routeTemplate: "api/{controller}/{name}/{password}"
+            );
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
