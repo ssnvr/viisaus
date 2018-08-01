@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -74,11 +75,14 @@ namespace visdom_api.Controllers
         [ResponseType(typeof(Post))]
         public IHttpActionResult PostPost(Post post)
         {
+            
             if (!ModelState.IsValid)
             {
+
                 return BadRequest(ModelState);
             }
-
+            post.Emoijtag = "kakka";
+            post.Time = DateTime.Now;
             db.Posts.Add(post);
 
             try
@@ -94,6 +98,16 @@ namespace visdom_api.Controllers
                 else
                 {
                     throw;
+                }
+            }
+            catch(DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach(var validationError in validationErrors.ValidationErrors)
+                    {
+                        Console.WriteLine($"Property: {validationError.PropertyName} Error: {validationError.ErrorMessage}");
+                    }
                 }
             }
 

@@ -20,7 +20,8 @@ export function getMessages(callback) {
 }
 
 export function addNewMessage(msg, callback){
-     fetch( "api/posts/",{
+    msg.user_id=1; 
+    fetch( "api/posts/",{
      method: 'POST',
      headers: {'Content-Type': 'application/json'},
      body: JSON.stringify(msg)

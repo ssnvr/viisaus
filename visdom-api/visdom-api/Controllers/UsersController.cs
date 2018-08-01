@@ -6,6 +6,8 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web.Http;
 using System.Web.Http.Description;
 using visdom_api.Models;
@@ -14,6 +16,22 @@ namespace visdom_api.Controllers
 {
     public class UsersController : ApiController
     {
+        public static byte[] Hash(string value, byte[] salt)
+        {
+            return Hash(Encoding.UTF8.GetBytes(value), salt);
+        }
+
+        public static byte[] Hash(byte[] value, byte[] salt)
+        {
+            byte[] saltedValue = value.Concat(salt).ToArray();
+            // Alternatively use CopyTo.
+            //var saltedValue = new byte[value.Length + salt.Length];
+            //value.CopyTo(saltedValue, 0);
+            //salt.CopyTo(saltedValue, value.Length);
+
+            return new SHA256Managed().ComputeHash(saltedValue);
+        }
+
         private visdomdbEntities db = new visdomdbEntities();
 
         // GET: api/Users
@@ -80,6 +98,11 @@ namespace visdom_api.Controllers
             {
                 return BadRequest(ModelState);
             }
+
+            byte[] salt = new byte[16];
+            
+            user.Password = Convert.ToBase64String(Hash(user.Password, salt));
+            user.PasswordSalt = Convert.ToBase64String(salt);
 
             db.Users.Add(user);
             db.SaveChanges();
