@@ -17,26 +17,25 @@ class App extends Component {
     activeMood: null,
   }
 
+  // componentDidMount() {
+  //   fetch("/api/users/")
+  //     .then(res => res.json())
+  //     .then(json => {
+  //       console.log('users')
+  //       this.setState({
+  //         udata: json,
+  //       });
+  //     });
 
-  componentDidMount() {
-    fetch("/api/users/")
-      .then(res => res.json())
-      .then(json => {
-        console.log('users')
-        this.setState({
-          udata: json,
-        });
-      });
-
-    fetch("/api/posts/")
-      .then(res => res.json())
-      .then(json => {
-        console.log("posts")
-        this.setState({
-          data: json,
-        });
-      });
-  }
+  //   fetch("/api/posts/")
+  //     .then(res => res.json())
+  //     .then(json => {
+  //       console.log("posts")
+  //       this.setState({
+  //         data: json,
+  //       });
+  //     });
+  // }
 
   handleVote(e) {
     console.log(e.currentTarget);
@@ -47,33 +46,35 @@ class App extends Component {
 
   render() {
     return (
+//       <div className="App">
 
-      <div className="App">
-
-      {this.state.activeUser===null&&<LandingPage/>}
-        {/* <Valikko />
-        <Post />
+//         {this.state.activeUser === null && <LandingPage />}
+//     </div > )
+//   }
+// }
+<div>
+    <Valikko /> 
+  <Message/>
+  </div>)}}
+  
+       { /* <Post />
         <Login />
 
         <Create />
-        <PostList/>
-        <Message/>
+        <PostList />
+        <Message />
 
         <Create />
-        {/* <PostList data={this.state.data} handleVote={this.handleVote} addMessage={this.addMessage}/> */}
+        <PostList data={this.state.data} handleVote={this.handleVote} addMessage={this.addMessage} /> 
 
-        {/* <Valikko />
-        <Post />
+    
+         <Post />
         <Login />
-        <Create /> */}
+        <Create />
+      
         <Message data={this.state.data} />
-        {/* <PostList data={this.state.data} handleVote={this.handleVote} /> */}
-        <Create udata={this.state.udata} />
-
-
-      </div>
-    )
-  }
-}
+        <PostList data={this.state.data} handleVote={this.handleVote} />
+  <Create udata={this.state.udata} /> */}
+     
 
 export default App;

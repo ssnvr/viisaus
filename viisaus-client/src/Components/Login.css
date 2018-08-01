@@ -1,16 +1,33 @@
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 8vh !important;
+}  
+.loggaus {
+    margin-left: 15.5vh;
+    font-size: 3.2vh;
+}
 .nappi {
 border-radius: 25px;
-/* border: 2px solid antiquewhite; */
 padding-left: 1.6vh;
 padding-right: 1.6vh;
 font-family: 'Nunito', sans-serif;
 font-weight: 600;
 background-color: antiquewhite;
 color: #cb2d3e;
+margin-left: 14vh;
+margin-top: 1.5vh;
 }
 .teksti {
 border-radius: 10px;
 font-family: 'Nunito', sans-serif;
 background-color: antiquewhite;
 margin: 1vh;
+}
+.luoUusi {
+    /* text-align: center; */
+    font-size: 2.8vh;
+    font-weight: 600;
+    padding-top: 3vh;
+    padding-left: 7vh;
 }

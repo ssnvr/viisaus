@@ -37,7 +37,7 @@ class Message extends Component {
 
         return (
             <div className="message">
-                <textarea className="tekstibox" rows="6" cols="25" placeholder="Write your message here!" value={this.state.Message} onChange={this.messageCreated} />
+                <textarea className="tekstibox" rows="1" cols="35" placeholder="Write your message here!" value={this.state.Message} onChange={this.messageCreated} />
                 <input className="submitMessage" type="submit" value="Send message" onClick={this.sendMessage} />
             </div>
         )

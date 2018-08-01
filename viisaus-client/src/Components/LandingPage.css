@@ -1,0 +1,14 @@
+.landing {
+    padding-bottom: 100vh;
+    padding-top: 20vh;
+}
+.paaotsikko {
+    font-family: 'Pacifico', cursive;
+    font-size: 10vh;
+    color: antiquewhite;
+    text-align: center;
+    padding-bottom: 3vh;
+}
+.paaotsikko:hover {
+    font-size: 12vh;
+}

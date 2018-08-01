@@ -1,12 +1,23 @@
-.navbar-brand {
+@media only screen and (max-width: 400px) {
+
+.valikkopala {
+    /* padding-bottom: 100vh; */
+    padding-left: 3vh;
+    padding-top: 3vh;
+}
+
+.V {
     font-family: 'Pacifico', cursive;
-    font-size: 4.5vh !important;
-    color: antiquewhite;
+    font-size: 5vh !important;
+    color: antiquewhite !important;
+    padding-left: 0.3vh;
 }
 .navbar-brand:hover {
     font-size: 5vh !important;
     color: antiquewhite;
   }
+
+
   .nav-link {
     font-family: 'Nunito', sans-serif;
     font-size: 3vh;
@@ -18,9 +29,13 @@
         color: antiquewhite;
         font-size: 4vh;
     }
-  
-  .nav-item {
-      margin-right: -0.8vh;
-      margin-left: -0.8vh;
 
-  }
+  .nav-item {
+      margin-top: -2vh;
+      margin-bottom: -2vh; 
+
+   } 
+   /* #icon {
+       font-size: vh;
+   } */
+}
