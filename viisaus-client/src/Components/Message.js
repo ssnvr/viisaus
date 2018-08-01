@@ -1,17 +1,43 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import {getMessages, addNewMessage} from '../ServiceDesk';
 
-class Message extends Component{
-    handleChange (e){
-        this.setState({
-            length: event.target.value.length
-        });
+class Message extends Component {
+    state = { Message: ''};
+
+    messageCreated = (e) => {
+        this.setState({ Message: e.target.value });
     }
-    render(){
-      
-        return(
+    checkLength() {
+        let pituus = this.state.Message.length;
+        if (pituus > 160) {
+            this.state.Message.trim('a', 'e', 'i', 'o', 'u', 'y', 'å', 'ä', 'ö');
+            console.log(this.state.Message);
+
+        }
+    }
+    getMessagesAndUpdate=()=>{
+        getMessages(function (list){
+          this.setState({data: list});
+        }.bind(this));
+      } //tämäkin on joku Annin hämärä funktio
+       
+      addMessage= (msg)=>{
+        addNewMessage(msg, function (){
+          this.getMessagesAndUpdate();
+        }.bind(this));
+      }
+    sendMessage = (e) => {
+        e.preventDefault();
+        this.checkLength();
+        this.addMessage(this.state); //tässä on iso onglema 
+        this.setState({ Message: '' });
+    }
+    render() {
+
+        return (
             <div className="message">
-            <textarea onChange={this.handleChange}/>
-            <input className="submitMessage" type="submit" value="Send message" onClick={}/>
+                <textarea placeholder="Write your message here!" value={this.state.Message} onChange={this.messageCreated} />
+                <input className="submitMessage" type="submit" value="Send message" onClick={this.sendMessage} />
             </div>
         )
     }

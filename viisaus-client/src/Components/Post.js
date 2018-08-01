@@ -4,7 +4,6 @@ import Vote from './Vote';
 class Post extends Component{
   state={counter: '' }
 
-
   //emojiasia
 
   render(){
@@ -12,7 +11,7 @@ class Post extends Component{
       message,
       handleVote
     } = this.props;
-
+    
     return(
       <div>
         <p>{message}</p>
