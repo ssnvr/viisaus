@@ -85,7 +85,7 @@ class App extends Component {
         <Login />
         <Create /> */}
         {/* <Message data={this.state.data} /> */}
-        <PostList data={this.state.data} handleVote={this.handleVote} />
+        {/* <PostList data={this.state.data} handleVote={this.handleVote} /> */}
         {/* <Create udata={this.state.udata} /> */}
 
 
