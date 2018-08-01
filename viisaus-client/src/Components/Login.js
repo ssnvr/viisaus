@@ -3,11 +3,12 @@ import './Login.css'
 import { getUsers , getUser} from '../ServiceDesk';
 
 class Login extends Component {
-    state = { name: '', password: '', udata: [], activeUser: null }
+    state = { name: '', password: '', udata: [] }
 
     constructor(props){
         super(props)
         this.handleClick=this.handleClick.bind(this)
+        this.foundInDatabase=this.foundInDatabase.bind(this)
     }
     nameChanged = (e) => {
         this.setState({ name: e.target.value });
@@ -20,6 +21,7 @@ class Login extends Component {
             this.setState({ udata: user });
             console.log("mahtia");
         }.bind(this));
+        this.props.activateUser(this.state.udata)
     }
     
     handleClick = (e) => {
@@ -29,7 +31,7 @@ class Login extends Component {
     ready = (e) => {
         e.preventDefault();
         this.foundInDatabase();
-        this.setState({ name: '', password: '' , activeUser: true});
+        this.setState({ name: '', password: '' });
     }
 
     render() {

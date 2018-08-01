@@ -17,6 +17,11 @@ class App extends Component {
     activeMood: null,
   }
 
+  constructor(props) {
+    super(props)
+    this.activateUser = this.activateUser.bind(this);
+  }
+
   componentDidMount() {
     fetch("/api/users/")
       .then(res => res.json())
@@ -48,13 +53,18 @@ class App extends Component {
       console.log("lol")
     }
   }
+  activateUser(user){
+    this.setState({
+      activeUser: user
+    })
+  }
 
   render() {
     return (
 
       <div className="App">
        
-      {this.state.activeUser===null&&<LandingPage/>}
+      {this.state.activeUser===null&&<LandingPage activateUser={this.activateUser}/>}
 
       {this.state.activeUser != null && <Valikko changeMood={this.changeMood}/>} 
       {this.state.activeMood != null && <PostList/>}
