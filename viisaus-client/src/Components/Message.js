@@ -4,13 +4,12 @@ import './Message.css';
 
 class Message extends Component {
 
-    state = { 
+    state = {
         Message: '',
         activeMood: null,
     };
 
     state = { Message: '' };
-
 
     messageCreated = (e) => {
         this.setState({ Message: e.target.value });
@@ -23,11 +22,12 @@ class Message extends Component {
             this.state.Message.trim('a', 'e', 'i', 'o', 'u', 'y', 'å', 'ä', 'ö');
             console.log(this.state.Message);
 
-            this.setState({ Message: this.state.Message.replace(/[aeiouyåäö]/gi, '')});
+            this.setState({ Message: this.state.Message.replace(/[aeiouyåäö]/gi, '') });
 
 
         }
     }
+    
     getMessagesAndUpdate = () => {
         getMessages(function (list) {
             this.setState({ data: list });
@@ -47,7 +47,7 @@ class Message extends Component {
         this.setState({ Message: '' });
     }
     render() {
-console.log(this.state);
+        console.log(this.state);
         return (
             <div className="message">
                 <textarea className="tekstibox" rows="6" cols="25" placeholder="Write your message here!" value={this.state.Message} onChange={this.messageCreated} />
