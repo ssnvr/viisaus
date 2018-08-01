@@ -17,30 +17,21 @@ class App extends Component {
     activeMood: null,
   }
 
+
   constructor(props) {
     super(props)
     this.activateUser = this.activateUser.bind(this);
   }
 
-  componentDidMount() {
-    fetch("/api/users/")
-      .then(res => res.json())
-      .then(json => {
-        console.log('users')
-        this.setState({
-          udata: json,
-        });
-      });
-
-    fetch("/api/posts/")
-      .then(res => res.json())
-      .then(json => {
-        console.log("posts")
-        this.setState({
-          data: json,
-        });
-      });
-  }
+  //   fetch("/api/posts/")
+  //     .then(res => res.json())
+  //     .then(json => {
+  //       console.log("posts")
+  //       this.setState({
+  //         data: json,
+  //       });
+  //     });
+  // }
 
   changeMood = (mood) => {
     this.setState({
@@ -61,6 +52,8 @@ class App extends Component {
 
   render() {
     return (
+//       <div className="App">
+
 
       <div className="App">
        
@@ -74,10 +67,11 @@ class App extends Component {
         <Login />
 
         <Create />
-        <PostList/>
-        <Message/>
+        <PostList />
+        <Message />
 
         <Create />
+
         /* <PostList data={this.state.data} handleVote={this.handleVote} addMessage={this.addMessage}/> */
 
         /* <Valikko />
@@ -88,11 +82,10 @@ class App extends Component {
         {/* <PostList data={this.state.data} handleVote={this.handleVote} /> */}
         {/* <Create udata={this.state.udata} /> */}
 
-
-
       </div>
     )
   }
 }
+
 
 export default App;

@@ -44,17 +44,17 @@ class Create extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="create">
                 <h5>
                     Create account:
                 </h5>
 
                 <form onSubmit={this.CreateUser}>
-                    Nickname: <input value={this.state.name} onChange={this.nameChanged} /> <br />
-                    Password: <input value={this.state.password} onChange={this.passwordChanged} />
+                    Nickname: <input className="teksti" value={this.state.name} onChange={this.nameChanged} /> <br />
+                    Password: <input className="teksti" value={this.state.password} onChange={this.passwordChanged} />
                     {this.validator.message('password',this.state.password,'required|min:6|max:30', 'text-danger')}
 
-                    <input className="nappi" type="submit" onClick={this.handleClick}/>
+                    <input className="nappi2" type="submit" onClick={this.handleClick}/>
                 </form>
             </div>
 

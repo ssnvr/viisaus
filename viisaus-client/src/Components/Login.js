@@ -38,16 +38,20 @@ class Login extends Component {
 
         return (
 
-            <div>
-                <h5>Login</h5>
+            <div className="container">
+            {/* <div className="row">
+            <div className="col-xs"></div>
+            <div className="col-xs-6"> */}
+                <h5 className="loggaus">Login</h5>
                 <form onSubmit={this.ready}>
-                    Nickname: <input value={this.state.name} onChange={this.nameChanged} /> <br />
-                    Password: <input value={this.state.password} onChange={this.passwordChanged} />
-                    <input type="submit" />
+                    Nickname: <input className="teksti" value={this.state.name} onChange={this.nameChanged} /> <br />
+                    Password: <input className="teksti" value={this.state.password} onChange={this.passwordChanged} />
+                    <input className="nappi" type="submit" />
                 </form>
-
-                <p onClick={this.handleClick}>Create new account</p>
-
+                {/* </div>
+                <div className="col-xs"></div>
+                </div> */}
+                <p className="luoUusi" onClick={this.handleClick}>Create new account</p>
             </div>
         );
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Login from './Login';
 import Create from './Create';
+import './LandingPage.css';
 
 class LandingPage extends Component {
     state = { registered: true }
@@ -12,10 +13,13 @@ class LandingPage extends Component {
     }
     render() {
         return (
-            <React.Fragment>
+            <div className="landing">
+                <h1 className="paaotsikko">Visdom</h1>
+           
                 {this.state.registered && <Login changeRegistered={this.changeRegistered} activateUser = {this.props.activateUser}/>}
+
                 {!this.state.registered && <Create />}
-            </React.Fragment>);
+            </div>);
     }
 }
 export default LandingPage;
