@@ -17,7 +17,6 @@ class App extends Component {
     activeMood: null,
   }
 
-
   componentDidMount() {
     fetch("/api/users/")
       .then(res => res.json())
@@ -54,10 +53,12 @@ class App extends Component {
     return (
 
       <div className="App">
-
+       
       {this.state.activeUser===null&&<LandingPage/>}
 
-       <Valikko changeMood={this.changeMood}/>
+      {this.state.activeUser != null && <Valikko changeMood={this.changeMood}/>} 
+      {this.state.activeMood != null && <PostList/>}
+      
         {/* <Valikko />
         <Post />
         <Login />
@@ -67,10 +68,10 @@ class App extends Component {
         <Message/>
 
         <Create />
-        {/* <PostList data={this.state.data} handleVote={this.handleVote} addMessage={this.addMessage}/> */}
+        /* <PostList data={this.state.data} handleVote={this.handleVote} addMessage={this.addMessage}/> */
 
-        {/* <Valikko />
-        <Post />
+        /* <Valikko />
+       
         <Login />
         <Create /> */}
         {/* <Message data={this.state.data} /> */}

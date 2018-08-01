@@ -3,7 +3,10 @@ import {getMessages, addNewMessage} from '../ServiceDesk';
 import './Message.css';
 
 class Message extends Component {
-    state = { Message: ''};
+    state = { 
+        Message: '',
+        activeMood: null,
+    };
 
     messageCreated = (e) => {
         this.setState({ Message: e.target.value });
@@ -13,7 +16,6 @@ class Message extends Component {
         if (pituus > 160) {
             this.state.Message.trim('a', 'e', 'i', 'o', 'u', 'y', 'å', 'ä', 'ö');
             console.log(this.state.Message);
-
         }
     }
     getMessagesAndUpdate=()=>{
@@ -42,7 +44,5 @@ class Message extends Component {
             </div>
         )
     }
-
 }
-
 export default Message;
