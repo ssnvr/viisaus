@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {getMessages, addNewMessage} from '../ServiceDesk';
+import './Message.css';
 
 class Message extends Component {
     state = { Message: '', data: ''};
@@ -36,7 +37,7 @@ class Message extends Component {
 
         return (
             <div className="message">
-                <textarea placeholder="Write your message here!" value={this.state.Message} onChange={this.messageCreated} />
+                <textarea className="tekstibox" rows="6" cols="25" placeholder="Write your message here!" value={this.state.Message} onChange={this.messageCreated} />
                 <input className="submitMessage" type="submit" value="Send message" onClick={this.sendMessage} />
             </div>
         )

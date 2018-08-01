@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-
 import Valikko from './Components/Valikko';
-
 import Post from './Components/Post';
 import Login from './Components/Login';
 import Create from './Components/Create';
 import PostList from './Components/PostList';
 import { addNewMessage, getMessages } from './ServiceDesk';
-
-
-
 
 class App extends Component {
   state = {
@@ -20,26 +15,26 @@ class App extends Component {
     activeMood: null,
   }
 
-  componentDidMount() {
-    fetch("/api/posts/")
-      .then( res => res.json() )
-      .then( json => {
-        console.log('jee')
-        this.setState({
-          data: json,
-        });
-      });
-  }
-  componentDidMount() {
-    fetch("/api/users/")
-      .then( res => res.json() )
-      .then( json => {
-        console.log('jee')
-        this.setState({
-          udata: json,
-        });
-      });
-  }
+  // componentDidMount() {
+  //   fetch("/api/posts/")
+  //     .then( res => res.json() )
+  //     .then( json => {
+  //       console.log('jee')
+  //       this.setState({
+  //         data: json,
+  //       });
+  //     });
+  // }
+  // componentDidMount() {
+  //   fetch("/api/users/")
+  //     .then( res => res.json() )
+  //     .then( json => {
+  //       console.log('jee')
+  //       this.setState({
+  //         udata: json,
+  //       });
+  //     });
+  // }
 
 
   handleVote(e) {
@@ -75,8 +70,7 @@ class App extends Component {
         {/* <PostList/> */}
         {/* <Message/> */}
 
-
-        <Create />*/}
+        <Create />
         {/* <PostList data={this.state.data} handleVote={this.handleVote} addMessage={this.addMessage}/> */}
         <PostList data={this.state.data} handleVote={this.handleVote} />
         <Create udata={this.state.udata} />

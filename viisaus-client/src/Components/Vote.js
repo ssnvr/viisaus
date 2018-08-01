@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import '../App.css';
+// import './App.css';
+import './Vote.css'
 
 class Vote extends Component {
   state = {
@@ -20,8 +21,8 @@ class Vote extends Component {
   render() {
     var up = this.state.upvote ? 'Hell yeah!' : 'Upvote';
     var down = this.state.downvote ? 'Hell no!' : 'Downvote';
-    var uptyyli = this.state.downvote ? 'hidden':'';
-    var downtyyli = this.state.upvote ? 'hidden':'';
+    var uptyyli = this.state.downvote ? 'hidden':'visible';
+    var downtyyli = this.state.upvote ? 'hidden':'visible';
 
     return(
       <div className="votebutton">

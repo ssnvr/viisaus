@@ -1,3 +1,26 @@
-/* #navi {
-    background-image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Menu,_Web_Fundamentals_(White).svg/1280px-Menu,_Web_Fundamentals_(White).svg.png';
-} */
+.navbar-brand {
+    font-family: 'Pacifico', cursive;
+    font-size: 4.5vh !important;
+    color: antiquewhite;
+}
+.navbar-brand:hover {
+    font-size: 5vh !important;
+    color: antiquewhite;
+  }
+  .nav-link {
+    font-family: 'Nunito', sans-serif;
+    font-size: 3vh;
+    font-weight: 600;
+    color: antiquewhite;
+    margin-top: 1.5vh;
+  }
+    .nav-link:hover {
+        color: antiquewhite;
+        font-size: 4vh;
+    }
+  
+  .nav-item {
+      margin-right: -0.8vh;
+      margin-left: -0.8vh;
+
+  }
