@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SimpleReactValidator from 'simple-react-validator';
+import {getUsers, addNewUser} from '../ServiceDesk';
 
 class Create extends Component {
 
@@ -17,11 +18,28 @@ class Create extends Component {
         this.setState({ password: e.target.value })
 
     }
-    handleClick = (e) => {
-        e.preventDefault();
-        if(this.state.password.length < 6){
-            console.log('Liian lyhyt salasana');
+    checkLength() {
+        let pituus = this.state.password.length;
+        if (pituus < 6) {
+            console.log(this.state.Message);
         }
+    }
+    getUserAndUpdate=()=>{
+        getUsers(function (user){
+          this.setState({udata: user});
+        }.bind(this));
+      } //tämäkin on joku Annin hämärä funktio
+       
+      addUser= (msg)=>{
+        addNewUser(msg, function (){
+          this.getUserAndUpdate();
+        }.bind(this));
+      }
+    CreateUser = (e) => {
+        e.preventDefault();
+        this.checkLength();       
+        this.addUser(this.state); //tässä on iso onglema 
+        this.setState({ nickname: '', password: '' });
     }
    
     
