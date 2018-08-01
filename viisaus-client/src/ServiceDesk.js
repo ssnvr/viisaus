@@ -2,7 +2,7 @@
 
 
 export function getMessages(callback) {
-    fetch( "api/posts")
+    fetch( "api/posts/")
         .then(function (response) {
             if (!response.ok) {
                 const errmsg = {
