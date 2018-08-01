@@ -53,6 +53,25 @@ namespace visdom_api.Controllers
             return Ok(user);
         }
 
+        // GET: api/Users/:name/:password
+        [ResponseType(typeof(User))]
+        public IHttpActionResult GetUser(string name, string password)
+        {
+            User user = db.Users.Where(u => u.Name == name).FirstOrDefault();
+            if (user != null)
+            {
+                byte[] passwordHash = Hash(password, Encoding.UTF8.GetBytes(user.PasswordSalt));
+
+                bool correct = Encoding.UTF8.GetBytes(user.Password).SequenceEqual(passwordHash);
+                if (correct)
+                {
+                    return Ok(user);
+                }
+            }
+
+            return NotFound();
+        }
+
         // PUT: api/Users/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutUser(int id, User user)
