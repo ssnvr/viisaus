@@ -24,10 +24,6 @@ namespace visdom_api.Controllers
         public static byte[] Hash(byte[] value, byte[] salt)
         {
             byte[] saltedValue = value.Concat(salt).ToArray();
-            // Alternatively use CopyTo.
-            //var saltedValue = new byte[value.Length + salt.Length];
-            //value.CopyTo(saltedValue, 0);
-            //salt.CopyTo(saltedValue, value.Length);
 
             return new SHA256Managed().ComputeHash(saltedValue);
         }
@@ -40,18 +36,18 @@ namespace visdom_api.Controllers
             return db.Users;
         }
 
-        // GET: api/Users/5
-        [ResponseType(typeof(User))]
-        public IHttpActionResult GetUser(int id)
-        {
-            User user = db.Users.Find(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
+        //// GET: api/Users/5
+        //[ResponseType(typeof(User))]
+        //public IHttpActionResult GetUser(int id)
+        //{
+        //    User user = db.Users.Find(id);
+        //    if (user == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return Ok(user);
-        }
+        //    return Ok(user);
+        //}
 
         // GET: api/Users/:name/:password
         [ResponseType(typeof(User))]
@@ -60,9 +56,9 @@ namespace visdom_api.Controllers
             User user = db.Users.Where(u => u.Name == name).FirstOrDefault();
             if (user != null)
             {
-                byte[] passwordHash = Hash(password, Encoding.UTF8.GetBytes(user.PasswordSalt));
-
-                bool correct = Encoding.UTF8.GetBytes(user.Password).SequenceEqual(passwordHash);
+                byte[] passwordHash = Hash(password, Convert.FromBase64String(user.PasswordSalt));
+                var pol = Encoding.UTF8.GetBytes(user.Password);
+                bool correct = Convert.FromBase64String(user.Password).SequenceEqual(passwordHash);
                 if (correct)
                 {
                     return Ok(user);
@@ -111,8 +107,6 @@ namespace visdom_api.Controllers
         [ResponseType(typeof(User))]
         public IHttpActionResult PostUser(User user)
         {
-            user.PasswordSalt = "suola";
-            
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
