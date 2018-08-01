@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import {getMessages, addNewMessage} from '../ServiceDesk';
 
 class Message extends Component {
-    state = { Message: '' };
+    state = { Message: ''};
 
     messageCreated = (e) => {
         this.setState({ Message: e.target.value });
@@ -14,10 +15,21 @@ class Message extends Component {
 
         }
     }
+    getMessagesAndUpdate=()=>{
+        getMessages(function (list){
+          this.setState({data: list});
+        }.bind(this));
+      } //tämäkin on joku Annin hämärä funktio
+       
+      addMessage= (msg)=>{
+        addNewMessage(msg, function (){
+          this.getMessagesAndUpdate();
+        }.bind(this));
+      }
     sendMessage = (e) => {
         e.preventDefault();
         this.checkLength();
-        this.props.addMessage(this.state); //tässä on iso onglema 
+        this.addMessage(this.state); //tässä on iso onglema 
         this.setState({ Message: '' });
     }
     render() {

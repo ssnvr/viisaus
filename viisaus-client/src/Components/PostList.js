@@ -18,7 +18,7 @@ class PostList extends Component {
     return (
       <div className="postList">
         {messages}
-        <Message addMessage={this.addMessage}/>
+        <Message data={this.data}/>
       </div>
     )
   }
