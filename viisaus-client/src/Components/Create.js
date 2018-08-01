@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SimpleReactValidator from 'simple-react-validator';
 import {getUsers, addNewUser} from '../ServiceDesk';
+import './Create.css';
 
 class Create extends Component {
 
@@ -42,7 +43,6 @@ class Create extends Component {
         this.addUser(this.state); 
         this.setState({ name: '', password: '' });
     }
-
     render() {
         return (
             <div>
@@ -55,7 +55,7 @@ class Create extends Component {
                     Password: <input value={this.state.password} onChange={this.passwordChanged} />
                     {this.validator.message('password',this.state.password,'required|min:6|max:30', 'text-danger')}
 
-                    <input type="submit" onClick={this.handleClick}/>
+                    <input className="nappi" type="submit" onClick={this.handleClick}/>
                 </form>
 
 

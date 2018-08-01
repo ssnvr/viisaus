@@ -1,0 +1,21 @@
+/* h5 {
+    font-family: 'Nunito', sans-serif !important;
+    color: antiquewhite !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.10vh !important;
+}
+form {
+    font-family: 'Nunito', sans-serif !important;
+    color: antiquewhite !important;
+} */
+.nappi {
+    border-radius: 25px;
+    /* border: 2px solid antiquewhite; */
+    padding-left: 1.6vh;
+    padding-right: 1.6vh;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    background-color: antiquewhite;
+    opacity: 70%;
+    color: #cb2d3e;
+}

@@ -9,7 +9,6 @@ import { addNewMessage, getMessages } from './ServiceDesk';
 import LandingPage from './Components/LandingPage';
 import Message from './Components/Message';
 
-
 class App extends Component {
   state = {
     data: [],
@@ -17,6 +16,7 @@ class App extends Component {
     activeUser: null,
     activeMood: null,
   }
+
 
   componentDidMount() {
     fetch("/api/users/")
@@ -59,11 +59,8 @@ class App extends Component {
         <PostList/>
         <Message/>
 
-
         <Create />
-        <PostList data={this.state.data} handleVote={this.handleVote} addMessage={this.addMessage}/>
-        <PostList data={this.state.data} handleVote={this.handleVote} />
-        <Create udata={this.state.udata} /> */}
+        {/* <PostList data={this.state.data} handleVote={this.handleVote} addMessage={this.addMessage}/> */}
 
         {/* <Valikko />
         <Post />
