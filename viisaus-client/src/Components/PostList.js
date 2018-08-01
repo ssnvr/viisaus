@@ -5,23 +5,24 @@ import '../App.css';
 
 class PostList extends Component {
 
-  render() {
-    const {
-      data,
-      handleVote
-    } = this.props;
+    render() {
+        const {
+            data,
+            handleVote
+        } = this.props;
 
-    let messages = data.map(function (post) {
-      return (<Post message={post.Message} key={post.Id} handleVote={handleVote}/>);
-    });
-    
-    return (
-      <div className="postList">
-        {messages}
-        <Message data={this.data}/>
-      </div>
-    )
-  }
+        let messages = data
+            .map(function (post) {
+                return (<Post message={post.Message} key={post.Id} handleVote={handleVote} />);
+            });
+
+        return (
+            <div className="postList">
+                {messages}
+                <Message data={this.data} />
+            </div>
+        )
+    }
 }
 export default PostList;
 

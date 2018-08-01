@@ -9,11 +9,12 @@ class Create extends Component {
         super(props);
         this.validator = new SimpleReactValidator();
     }
+    
 
-    state = { nickname: '', password: '' }
-    nicknameChanged = (e) => {
+    state = { name: '', password: '' }
+    nameChanged = (e) => {
 
-        this.setState({ nickname: e.target.value });
+        this.setState({ name: e.target.value });
     }
     passwordChanged = (e) => {
         this.setState({ password: e.target.value })
@@ -29,7 +30,7 @@ class Create extends Component {
         getUsers(function (user){
           this.setState({udata: user});
         }.bind(this));
-      } //tämäkin on joku Annin hämärä funktio
+      } 
        
       addUser= (msg)=>{
         addNewUser(msg, function (){
@@ -39,10 +40,9 @@ class Create extends Component {
     CreateUser = (e) => {
         e.preventDefault();
         this.checkLength();       
-        this.addUser(this.state); //tässä on iso onglema 
-        this.setState({ nickname: '', password: '' });
+        this.addUser(this.state); 
+        this.setState({ name: '', password: '' });
     }
-   
     render() {
         return (
             <div>
@@ -51,8 +51,8 @@ class Create extends Component {
                 </h5>
 
                 <form onSubmit={this.CreateUser}>
-                    Nickname: <input className="teksti"value={this.state.nickname} onChange={this.nicknameChanged} /> <br />
-                    Password: <input className="teksti"value={this.state.password} onChange={this.passwordChanged} />
+                    Nickname: <input value={this.state.name} onChange={this.nameChanged} /> <br />
+                    Password: <input value={this.state.password} onChange={this.passwordChanged} />
                     {this.validator.message('password',this.state.password,'required|min:6|max:30', 'text-danger')}
 
                     <input className="nappi" type="submit" onClick={this.handleClick}/>

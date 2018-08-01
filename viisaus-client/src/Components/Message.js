@@ -3,7 +3,7 @@ import {getMessages, addNewMessage} from '../ServiceDesk';
 import './Message.css';
 
 class Message extends Component {
-    state = { Message: '', data: ''};
+    state = { Message: ''};
 
     messageCreated = (e) => {
         this.setState({ Message: e.target.value });
