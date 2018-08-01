@@ -13,7 +13,7 @@ class LandingPage extends Component {
     render() {
         return (
             <React.Fragment>
-                {this.state.registered && <Login changeRegistered={this.changeRegistered}/>}
+                {this.state.registered && <Login changeRegistered={this.changeRegistered} activateUser = {this.props.activateUser}/>}
                 {!this.state.registered && <Create />}
             </React.Fragment>);
     }
