@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\stuki\source\repos\viisaus\visdom-api\visdom-api\Models\VisdomModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\work\Viikko8-Miniprojekti\viisaus\visdom-api\visdom-api\Models\VisdomModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
