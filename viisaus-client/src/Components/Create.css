@@ -1,23 +1,32 @@
+h5 {
+    font-size: 3vh;
+    margin-bottom: 4vh;
+}
 .create {
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 8vh !important;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: -8vh;
 }  
-
-.nappi2 {
-border-radius: 25px;
-padding-left: 1.6vh;
-padding-right: 1.6vh;
-font-family: 'Nunito', sans-serif;
-font-weight: 600;
-background-color: antiquewhite;
-color: #cb2d3e;
-margin-left: 14vh;
-margin-top: 1.5vh;
-}
 .teksti {
-border-radius: 10px;
-font-family: 'Nunito', sans-serif;
-background-color: antiquewhite;
-margin: 1vh;
+    width: 55vw;
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    background-color: antiquewhite;
+    }
+.nappi2 {
+    height: 5vh;
+    width: 30vw;
+    border-radius: 25px;
+    padding-left: 1.6vh;
+    padding-right: 1.6vh;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    background-color: antiquewhite;
+    color: #cb2d3e;
+    margin-top: 9vh;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
 }
+

@@ -3,6 +3,7 @@ import './App.css';
 import Valikko from './Components/Valikko';
 import PostList from './Components/PostList';
 import LandingPage from './Components/LandingPage';
+import Moodvalinta from './Components/Moodvalinta';
 
 class App extends Component {
 
@@ -41,7 +42,7 @@ class App extends Component {
           <LandingPage activateUser={this.activateUser}/>}
 
         {this.state.activeUser != null &&
-          this.state.activeMood === null && <Valikko changeMood={this.changeMood}/>}
+          this.state.activeMood === null && <Moodvalinta changeMood={this.changeMood}/>}
           
         {this.state.activeMood != null &&
           <PostList data={this.state.data}
