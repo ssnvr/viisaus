@@ -41,6 +41,7 @@ class Login extends Component {
                      <input className="teksti" placeholder="Nickname" value={this.state.name} onChange={this.nameChanged} required/> <br />
                      <input className="teksti" placeholder="Password" type="password" value={this.state.password} onChange={this.passwordChanged} required/>
                     <input className="nappi" type="submit" value="Login"/>
+
                 </form>
                 <p className="luoUusi" onClick={this.handleClick}>Create new account</p>
             </div>

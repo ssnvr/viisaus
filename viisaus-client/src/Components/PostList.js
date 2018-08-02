@@ -3,6 +3,7 @@ import Post from './Post';
 import Message from './Message';
 import Valikko from './Valikko';
 import '../App.css';
+import './PostList.css'
 
 class PostList extends Component {
 
