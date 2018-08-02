@@ -68,6 +68,7 @@ class Message extends Component {
     }
     sendMessage = (e) => {
         e.preventDefault();
+        document.getElementById("myTextarea").required = true;
         this.addMessage(this.state); //tässä on iso onglema 
         this.setState({ Message: '' });
 
@@ -77,12 +78,10 @@ class Message extends Component {
         console.log(this.state);
         return (
 
-
             <footer className="pohja">
             <div className="msggroup">
                 <textarea className="tekstibox" rows="1" cols="35" placeholder="Write your message here!" value={this.state.Message} onChange={this.messageCreated} minLength="5" maxLength="160" />
                 <input className="submitMessage" type="submit" value="💌" onClick={this.sendMessage} />
-
             </div>
             </footer>
         )
