@@ -40,7 +40,7 @@ class Login extends Component {
                 <h5 className="loggaus">Login</h5>
                 <form onSubmit={this.ready}>
                     Nickname: <input className="teksti" value={this.state.name} onChange={this.nameChanged} /> <br />
-                    Password: <input className="teksti" value={this.state.password} onChange={this.passwordChanged} />
+                    Password: <input className="teksti" type="password" value={this.state.password} onChange={this.passwordChanged} />
                     <input className="nappi" type="submit" />
                 </form>
                 <p className="luoUusi" onClick={this.handleClick}>Create new account</p>

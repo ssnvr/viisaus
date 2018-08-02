@@ -51,9 +51,10 @@ class Message extends Component {
 
         console.log(this.state);
         return (
+
             <footer className="pohja">
             <div className="row">
-                <textarea className="tekstibox" rows="1" cols="35" placeholder="Write your message here!" value={this.state.Message} onChange={this.messageCreated} />
+                <textarea className="tekstibox" rows="1" cols="35" placeholder="Write your message here!" value={this.state.Message} onChange={this.messageCreated} minLength="5" maxLength="160" />
                 <input className="submitMessage" type="submit" value="💌" onClick={this.sendMessage} />
          
             </div>
