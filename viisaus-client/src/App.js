@@ -30,19 +30,18 @@ class App extends Component {
     return (
       <div className="App">
 
-        {/* {this.state.activeUser === null &&
+        {this.state.activeUser === null &&
           <LandingPage activateUser={this.activateUser}/>}
 
         {this.state.activeUser != null &&
-          this.state.activeMood === null && <Moodvalinta changeMood={this.changeMood}/>} */}
+          this.state.activeMood === null && <Moodvalinta changeMood={this.changeMood}/>}
           
-        {/* {this.state.activeMood != null &&
+        {this.state.activeMood != null &&
           <PostList data={this.state.data}
             activeUser={this.state.activeUser}
             activeMood={this.state.activeMood}
             changeMood={this.changeMood}
-            />} */}
-            <PostList/>
+            />}
       </div>
     )
   }

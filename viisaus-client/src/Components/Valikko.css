@@ -1,4 +1,4 @@
-@media only screen and (max-width: 400px) {
+/* @media only screen and (max-width: 400px) { */
    .valikko {
     float: left;
     position: fixed;
@@ -39,5 +39,5 @@
           margin-top: -2vh;
           margin-bottom: -2vh; 
        }  */
-    }
+    /* } */
     

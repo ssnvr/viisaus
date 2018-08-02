@@ -54,12 +54,15 @@ class Post extends Component {
     return(
       <div className="card text-right">
       <div className="card-body">
+      <div className="ylaosa">
       <h5 className="card-title"> {this.props.data.Emoijtag} </h5> 
+      <p className="card-text" id="tykkaykset" >  {this.state.Vote} </p>
+      </div><br/><br/>
         <p className="card-text">{this.state.Message}</p>
         <Vote handleVoteUp={this.handleVoteUp} handleVoteDown={this.handleVoteDown}/>
-        <p className="card-text" id="tykkaykset" >  {this.state.Vote} </p>
         </div>
-      </div>
+        </div>
+      // </div>
     );
   }
 }

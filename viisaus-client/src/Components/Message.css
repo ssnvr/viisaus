@@ -2,14 +2,14 @@
     position: fixed;
     width: 100%;
     margin-top: 3vh;
-    bottom: 2vh;
+    bottom: 0;
     background-color:#cb2d3e;
     height: 12vh;
 }
 .msggroup {
     float:left;
     padding-top: 1vh;
-    padding-bottom: 1vh;
+    padding-bottom: 0.8vh;
 }
 .message {
     float: left;
@@ -36,6 +36,3 @@ margin-top: 1vh;
     font-family: 'Nunito', sans-serif;
     
 }
-/* .tekstibox:active {
-    size: 
-} */

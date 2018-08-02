@@ -47,14 +47,17 @@ class PostList extends Component {
                 <Valikko changeMood={this.props.changeMood} />
                 <div className="card-columns">
                     <div className="postList">
+                    
                         {messages}
+                        
+                        {/* <div className="loppu"></div> */}
                         <Message
                             data={this.state.data}
                             activeMood={this.props.activeMood}
                             updateMessages={this.updateMessages}
                             activeUser={this.props.activeUser}
                         />
-                    </div>
+                      </div>
                 </div>
             </div>
         )
