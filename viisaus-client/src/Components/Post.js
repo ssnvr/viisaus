@@ -14,6 +14,7 @@ class Post extends Component {
       Id
     } = this.props.data;
 
+
     this.state = {
       Message,
       Vote,
@@ -38,10 +39,10 @@ class Post extends Component {
     return(
       <div className="card text-right">
       <div className="card-body">
-      <h5 className="card-title"> 😍 </h5> 
+      <h5 className="card-title"> {this.props.data.Emoijtag} </h5> 
         <p className="card-text">{this.state.Message}</p>
         <Vote handleVote={this.handleVote}/>
-        <p className="card-text" id="tykkaykset" >  {this.state.Vote} </p> 
+        <p className="card-text" id="tykkaykset" >  {this.state.Vote} </p>
         </div>
       </div>
     );
