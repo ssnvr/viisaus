@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import SimpleReactValidator from 'simple-react-validator';
 import {getUsers, addNewUser} from '../ServiceDesk';
 import './Create.css';
 
@@ -7,7 +6,6 @@ class Create extends Component {
 
   constructor(props) {
     super(props);
-    this.validator = new SimpleReactValidator();
     this.state = {
       name: '',
       password: '',
@@ -18,13 +16,6 @@ class Create extends Component {
 
   passwordChanged = (e) => this.setState({ password: e.target.value })
 
-  checkLength = () => {
-    let pituus = this.state.password.length;
-    if (pituus < 6) {
-      console.log(this.state.Message);
-    }
-  }
-
   addUser = (state) => {
     addNewUser(state, function (){
       this.props.backToLogin();
@@ -33,7 +24,6 @@ class Create extends Component {
 
   CreateUser = (e) => {
     e.preventDefault();
-    this.checkLength();
     this.addUser(this.state);
     this.setState({ name: '', password: '' });
   }
@@ -46,10 +36,9 @@ class Create extends Component {
         </h5>
 
         <form onSubmit={this.CreateUser}>
-          Nickname: <input className="teksti" value={this.state.name} onChange={this.nameChanged} /> <br />
-          Password: <input className="teksti" value={this.state.password} onChange={this.passwordChanged} />
-          {this.validator.message('password',this.state.password,'required|min:6|max:30', 'text-danger')}
-
+          Nickname: <input className="teksti" value={this.state.name} onChange={this.nameChanged} minLength="3" maxLength="50"/>  <br />
+          Password: <input className="teksti" type="password" value={this.state.password} onChange={this.passwordChanged} minLength="6" maxLength="50"/>
+        
           <input className="nappi2" type="submit" onClick={this.handleClick}/>
         </form>
       </div>

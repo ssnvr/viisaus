@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Vote from './Vote';
 import { putVote } from '../ServiceDesk'
+import './Post.css'
 
 class Post extends Component {
 
@@ -34,18 +35,24 @@ class Post extends Component {
   }
 
   render() {
-    // const {
-    //   handleVote
-    // } = this.props;
-
     return(
-      <div>
-        <p>{this.state.Message}</p>
+      <div className="card text-right">
+      <div className="card-body">
+      <h5 className="card-title"> 😍 </h5> 
+        <p className="card-text">{this.state.Message}</p>
         <Vote handleVote={this.handleVote}/>
-        <p>Tykkäykset: {this.state.Vote}</p>
+        <p className="card-text" id="tykkaykset" >  {this.state.Vote} </p> 
+        </div>
       </div>
     );
   }
 }
 
 export default Post;
+<div class="card text-right" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
