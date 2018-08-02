@@ -3,61 +3,63 @@ import Post from './Post';
 import Message from './Message';
 import Valikko from './Valikko';
 import '../App.css';
+import { getMessagesWithEmoijtag } from '../ServiceDesk';
+
 import './PostList.css'
+
 
 class PostList extends Component {
 
-    state = {
-        data: [],
 
-        activeMood: this.props.activeMood
+  constructor(props){
+    super(props);
+    this.state = {
+      data: [],
+      activeMood: this.props.activeMood
     }
-    constructor(props) {
-        super(props)
-        this.updateMessages = this.updateMessages.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
+    this.updateMessages = this.updateMessages.bind(this);
+  }
 
-    }
-    componentDidMount() {
-        fetch("api/posts/")
-            .then(res => res.json())
-            .then(json => {
-                this.setState({
-                    data: json,
-                });
-            });
+  componentDidMount(){
+    console.log(this);
+    getMessagesWithEmoijtag(this.state.activeMood, function(res) {
+      this.updateMessages(res)
+    }.bind(this));
+  }
 
+  updateMessages(posts) {
+    this.setState({
+      data: posts
+    });
+  }
 
-    }
+  render() {
+    const {
+      handleVote
+    } = this.props;
 
-    updateMessages(messages) {
-        this.setState({
-            data: messages
-        })
-    }
-
-    render() {
-       
-        let messages = this.state.data
-
-            .map(function (post) {
-                return (<Post data={post} key={post.Id} />);
-            }.bind(this));
-        return (
-            <div>
-                <Valikko changeMood={this.props.changeMood} />
-                <div className="card-columns">
-                    <div className="postList">
-                        {messages}
-                        <Message
-                            data={this.state.data}
-                            activeMood={this.props.activeMood}
-                            updateMessages={this.updateMessages}
-                            activeUser={this.props.activeUser}
-                        />
-                    </div>
-                </div>
-            </div>
-        )
-    }
+    let messages = this.state.data
+    .map(function (post) {
+      return (<Post data={post} key={post.Id} handleVote={handleVote} />);
+    });
+    return (
+      <div>
+        <Valikko changeMood={this.props.changeMood}/>
+        <div className="card-columns">
+          <div className="postList">
+            {messages}
+            <Message
+              data={this.state.data}
+              activeMood={this.props.activeMood}
+              updateMessages={this.updateMessages}
+              activeUser={this.props.activeUser}
+              />
+          </div>
+        </div>
+      </div>
+    )
+  }
 }
+
 export default PostList;
