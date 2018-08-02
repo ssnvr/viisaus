@@ -107,20 +107,28 @@ namespace visdom_api.Controllers
         [ResponseType(typeof(User))]
         public IHttpActionResult PostUser(User user)
         {
-            if (!ModelState.IsValid)
+            var q = from h in db.Users
+                    where h.Name == user.Name
+                    select h;
+
+            if (q == null)
             {
-                return BadRequest(ModelState);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                byte[] salt = new byte[16];
+
+                user.Password = Convert.ToBase64String(Hash(user.Password, salt));
+                user.PasswordSalt = Convert.ToBase64String(salt);
+
+                db.Users.Add(user);
+                db.SaveChanges();
+
+                return CreatedAtRoute("DefaultApi", new { id = user.Id }, user);
             }
-
-            byte[] salt = new byte[16];
-            
-            user.Password = Convert.ToBase64String(Hash(user.Password, salt));
-            user.PasswordSalt = Convert.ToBase64String(salt);
-
-            db.Users.Add(user);
-            db.SaveChanges();
-
-            return CreatedAtRoute("DefaultApi", new { id = user.Id }, user);
+            else return Unauthorized();
         }
 
         // DELETE: api/Users/5
