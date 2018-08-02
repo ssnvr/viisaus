@@ -27,6 +27,7 @@ class Valikko extends Component {
       <div className="valikkopala">
       {/* // <nav className="valikko"> */}
           <ul className="emojilist">
+
             <li className="nav-item">
               <a className="emoji" onClick={() => this.props.changeMood('heart')} ><span role="img">😍</span></a>
             </li>
