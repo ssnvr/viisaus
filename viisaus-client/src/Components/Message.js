@@ -79,7 +79,7 @@ class Message extends Component {
 
 
             <footer className="pohja">
-            <div className="row">
+            <div className="msggroup">
                 <textarea className="tekstibox" rows="1" cols="35" placeholder="Write your message here!" value={this.state.Message} onChange={this.messageCreated} minLength="5" maxLength="160" />
                 <input className="submitMessage" type="submit" value="💌" onClick={this.sendMessage} />
 
