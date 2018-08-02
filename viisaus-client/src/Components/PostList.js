@@ -40,9 +40,11 @@ class PostList extends Component {
             });
 
         return (
+            <div className="card-columns">
             <div className="postList">
                 {messages}
                 <Message data={this.state.data} activeMood={this.state.activeMood} updateMessages={this.updateMessages} />
+            </div>
             </div>
         )
     }

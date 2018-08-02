@@ -3,60 +3,66 @@ import React, { Component } from 'react';
 import './Valikko.css';
 
 class Valikko extends Component {
-  state={
+  constructor() {
+    super()
+  this.state={
     activeMood: null,
+    isHidden: true
   }
-
+}
+   showHidden() {
+     this.setState({
+       isHidden: !this.state.isHidden
+     })
+   }
   render() {
     return (
+      <div className="valikko" ><a className="V" onClick={this.showHidden.bind(this)}>V</a>
+      {!this.state.isHidden && <Icons/>}</div>
+    )
+  }
+  }
+
+  const Icons = () => (
       <div className="valikkopala">
+      {/* // <nav className="valikko"> */}
+          <ul className="emojilist">
 
-      <nav className="valikko">
-        <a className="V">V</a>
-        {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button> */}
-        {/* <div > */}
-          <ul className="nav navbar-nav">
             <li className="nav-item">
-              <a className="nav-link" href="#" onClick={() => this.props.changeMood('😍')} ><span role="img">😍</span></a>
+              <a className="emoji" onClick={() => this.props.changeMood('heart')} ><span role="img">😍</span></a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#" onClick={() => this.props.changeMood('🙌')}><span role="img">🙌</span></a>
+              <a className="emoji" onClick={() => this.props.changeMood('hands')}><span role="img">🙌</span></a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#" onClick={() => this.props.changeMood('🤯')}><span role="img">🤯</span></a>
+              <a className="emoji" onClick={() => this.props.changeMood('wow')}><span role="img">🤯</span></a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#" onClick={() => this.props.changeMood('💩')}><span role="img">💩</span></a>
+              <a className="emoji" onClick={() => this.props.changeMood('poop')}><span role="img">💩</span></a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#" onClick={() => this.props.changeMood('😎')}><span role="img">😎</span></a>
+              <a className="emoji" onClick={() => this.props.changeMood('sunclasses')}><span role="img">😎</span></a> 
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#" onClick={() => this.props.changeMood('🍻')}><span role="img">🍻</span></a>
+              <a className="emoji" onClick={() => this.props.changeMood('beer')}><span role="img">🍻</span></a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#" onClick={() => this.props.changeMood('🤣')}><span role="img">🤣</span></a>
+              <a className="emoji" onClick={() => this.props.changeMood('xd')}><span role="img">🤣</span></a>
             </li>
             <li className="nav-item">
 
-              <a className="nav-link" href="#" onClick={() => this.props.changeMood('🦄')}><span role="img">🦄</span></a>
+              <a className="emoji" onClick={() => this.props.changeMood('unicorn')}><span role="img">🦄</span></a>
 
             </li>
             <li className="nav-item active">
-              <a className="nav-link" href="#">All<span className="sr-only">(current)</span></a>
-
+              <a className="emoji">All<span className="sr-only"></span></a>
+              
             </li>
           </ul>
-        {/* </div> */}
-      </nav>
-      </div>
-    )
-  }
-}
-
+        </div>
+  )
+      {/* </nav> */}
+      // </div>
+   
+  
 export default Valikko;
-{/* <div className="valikkopala">
-<ul><li className="listapala"><a><span role="img">🦄</span></a></li><li><a className="listapala"><a><span role="img">🦄</span></a></li><li><a></a><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li>
-</ul></div> */}
