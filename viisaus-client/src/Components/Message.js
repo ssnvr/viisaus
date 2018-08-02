@@ -4,12 +4,9 @@ import './Message.css';
 
 class Message extends Component {
 
-    state = {
+    state = { data: [],
         Message: '',
-        activeMood: null,
-    };
-
-    state = { Message: '' };
+    activeMood: this.activeMood };
 
     messageCreated = (e) => {
         this.setState({ Message: e.target.value });
@@ -27,10 +24,12 @@ class Message extends Component {
 
         }
     }
-    
+    componentDidMount(){
+        this.getMessagesAndUpdate();
+    }
     getMessagesAndUpdate = () => {
         getMessages(function (list) {
-            this.setState({ data: list });
+            this.props.updateMessages(list)
         }.bind(this));
         console.log("mitä");
     } //tämäkin on joku Annin hämärä funktio
