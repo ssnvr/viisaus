@@ -36,7 +36,7 @@ class PostList extends Component {
 
         let messages = this.state.data
             .map(function (post) {
-                return (<Post message={post.Message} key={post.Id} handleVote={handleVote} />);
+                return (<Post data={post} key={post.Id} handleVote={handleVote} />);
             });
 
         return (
