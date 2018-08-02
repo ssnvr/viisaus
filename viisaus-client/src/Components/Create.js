@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {getUsers, addNewUser} from '../ServiceDesk';
+import { addNewUser } from '../ServiceDesk';
 import './Create.css';
 
 class Create extends Component {
@@ -22,8 +22,8 @@ class Create extends Component {
   addUser = (state) => {
     addNewUser(state, function (response){
       console.log(response);
-      if(response==401){
-          alert("Try again, Nickname is not awailable!")
+      if(response === 401){
+          alert("Try again, Nickname is not available!")
       }
       else{
         this.props.backToLogin();

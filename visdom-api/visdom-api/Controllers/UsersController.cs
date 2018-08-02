@@ -27,6 +27,16 @@ namespace visdom_api.Controllers
 
             return new SHA256Managed().ComputeHash(saltedValue);
         }
+        private static byte[] GetSalt(int maximumSaltLength)
+        {
+            var salt = new byte[maximumSaltLength];
+            using (var random = new RNGCryptoServiceProvider())
+            {
+                random.GetNonZeroBytes(salt);
+            }
+
+            return salt;
+        }
 
         private visdomdbEntities db = new visdomdbEntities();
 
@@ -119,7 +129,7 @@ namespace visdom_api.Controllers
                 return BadRequest(ModelState);
             }
 
-            byte[] salt = new byte[16];
+            byte[] salt = GetSalt(16);
 
             user.Password = Convert.ToBase64String(Hash(user.Password, salt));
             user.PasswordSalt = Convert.ToBase64String(salt);

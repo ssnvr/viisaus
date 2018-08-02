@@ -1,32 +1,79 @@
 import React, {Component} from 'react';
+import { instanceOf } from 'prop-types';
+import { withCookies, Cookies } from 'react-cookie';
 // import './App.css';
 import './Vote.css'
 
 class Vote extends Component {
-  state = {
-    upvote: false,
-    downvote: false,
+  static propTypes = {
+    cookies: instanceOf(Cookies).isRequired
   };
+
+  constructor(props) {
+    super(props);
+
+    const { 
+      cookies, 
+      postId 
+    } = this.props
+
+    this.state = {
+      upvote: false,
+      downvote: false,
+      voted: cookies.get('postid' + postId) || null,
+    };
+  }
+  
 
   upVote = (e) => {
     this.props.handleVoteUp(e);
+
+    const { 
+      cookies, 
+      postId 
+    } = this.props
+
+    cookies.set('postid' + postId, e.currentTarget.dataset.votedirection, { path: '/' });
     this.setState({upvote: !this.state.upvote});
-    console.dir("ylös")
-    console.log(this.state)
   }
 
   downVote = (e) => {
     this.props.handleVoteDown(e);
+
+    const { 
+      cookies, 
+      postId 
+    } = this.props
+
+    cookies.set('postid' + postId, e.currentTarget.dataset.votedirection, { path: '/' });
     this.setState({downvote: !this.state.downvote});
-    console.dir("alas")
-    console.log(this.state)
   }
 
   render() {
-    var up = this.state.upvote ? 'Hell yeah!' : 'Upvote';
-    var down = this.state.downvote ? 'Hell no!' : 'Downvote';
-    var uptyyli = this.state.downvote ? 'hidden':'visible';
-    var downtyyli = this.state.upvote ? 'hidden':'visible';
+    const { 
+      voted,
+      upvote,
+      downvote,
+    } = this.state
+
+    let up, down, uptyyli, downtyyli;
+
+    if (voted === 'up') {
+      up = 'Hell yeah!';
+      down = '👎';
+      uptyyli = 'visible';
+      downtyyli = 'hidden';
+    } else if (voted === 'down') {
+      up = '👍';
+      down = 'Hell no!';
+      uptyyli = 'hidden';
+      downtyyli = 'visible';
+    } else {
+      up = upvote ? 'Hell yeah!' : '👍';
+      down = downvote ? 'Hell no!' : '👎';
+      uptyyli = downvote ? 'hidden':'visible';
+      downtyyli = upvote ? 'hidden':'visible';
+    }
 
     return(
       <div className="votebutton">
@@ -46,4 +93,4 @@ class Vote extends Component {
     )
   }
 }
-export default Vote;
+export default withCookies(Vote);

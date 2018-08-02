@@ -28,35 +28,53 @@ class Valikko extends Component {
         {!this.state.isHidden &&
           <div className="valikkopala">
             <ul className="emojilist">
-              <li className="nav-item">
-                <a className="emoji" onClick={() => this.props.changeMood('😍')} ><span role="img">😍</span></a>
-              </li>
-              <li className="nav-item">
-                <a className="emoji" onClick={() => this.props.changeMood('🙌')}><span role="img">🙌</span></a>
-              </li>
-              <li className="nav-item">
-                <a className="emoji" onClick={() => this.props.changeMood('🤯')}><span role="img">🤯</span></a>
-              </li>
-              <li className="nav-item">
-                <a className="emoji" onClick={() => this.props.changeMood('💩')}><span role="img">💩</span></a>
-              </li>
-              <li className="nav-item">
-                <a className="emoji" onClick={() => this.props.changeMood('😎')}><span role="img">😎</span></a>
-              </li>
-              <li className="nav-item">
-                <a className="emoji" onClick={() => this.props.changeMood('🍻')}><span role="img">🍻</span></a>
-              </li>
-              <li className="nav-item">
-                <a className="emoji" onClick={() => this.props.changeMood('🤣')}><span role="img">🤣</span></a>
-              </li>
-              <li className="nav-item">
-                <a className="emoji" onClick={() => this.props.changeMood('🦄')}><span role="img">🦄</span></a>
-              </li>
               <li className="nav-item active">
-                <a className="emoji">All<span className="sr-only"></span></a>
+                <a className="emoji" onClick={this.props.getAllPosts}>All<span className="sr-only"></span></a>
               </li>
               <li className="nav-item">
-                <a className="emoji" onClick={this.logout} ><span role="img">LogOut</span></a>
+                <a className="emoji" onClick={() => this.props.changeMood('😍')} >
+                  <span role="img" aria-label="Smiling Face With Heart-Eyes">😍</span>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="emoji" onClick={() => this.props.changeMood('🙌')}>
+                  <span role="img" aria-label="Person Raising Both Hands in Celebration">🙌</span>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="emoji" onClick={() => this.props.changeMood('🤯')}>
+                  <span role="img" aria-label="Shocked Face With Exploding Head">🤯</span>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="emoji" onClick={() => this.props.changeMood('💩')}>
+                  <span role="img" aria-label="Pile of poo">💩</span>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="emoji" onClick={() => this.props.changeMood('😎')}>
+                  <span role="img" aria-label="Smiling Face With Sunglasses">😎</span>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="emoji" onClick={() => this.props.changeMood('🍻')}>
+                  <span role="img" aria-label="Clinking Beer Mugs">🍻</span>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="emoji" onClick={() => this.props.changeMood('🤣')}>
+                  <span role="img" aria-label="Rolling on the Floor Laughing">🤣</span>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="emoji" onClick={() => this.props.changeMood('🦄')}>
+                  <span role="img" aria-label="Unicorn Face">🦄</span>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="emoji" onClick={this.logout} >
+                  <span role="img" aria-label="Cross Mark">❌</span>
+                </a>
               </li>
             </ul>
           </div>

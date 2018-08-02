@@ -4,7 +4,6 @@ import './Message.css';
 
 class Message extends Component {
   state = {
-    data: [],
     Message: '',
     activeUser: '',
     activeMood: ''
@@ -35,8 +34,9 @@ class Message extends Component {
   }
 
   componentDidMount() {
-    this.getMessagesAndUpdate();
+    this.props.updateMessages(this.props.data);
   }
+
   getMessagesAndUpdate = () => {
     getMessagesWithEmoijtag(this.props.activeMood, function (list) {
       this.props.updateMessages(list)
@@ -53,6 +53,7 @@ class Message extends Component {
   }
   sendMessage = (e) => {
     e.preventDefault();
+        console.log("Im here")
     this.addMessage(this.state); //tässä on iso onglema
     this.setState({ Message: '' });
 
@@ -61,10 +62,10 @@ class Message extends Component {
     return (
       
             <footer className="pohja">
-            <div className="msggroup">
-                <textarea className="tekstibox" rows="1" cols="35" placeholder="Write your message here!" value={this.state.Message} onChange={this.messageCreated} minLength="5" maxLength="160" />
-                <input className="submitMessage" type="submit" value="💌" onClick={this.sendMessage} />
-            </div>
+              <div className="msggroup">
+                  <textarea className="tekstibox" rows="1" cols="35" wrap="soft" placeholder="Write your message here!" value={this.state.Message} onChange={this.messageCreated} minLength="5" maxLength="160" />
+                  <input className="submitMessage" type="submit" value="💌" onClick={this.sendMessage} />
+              </div>
             </footer>
         )
 

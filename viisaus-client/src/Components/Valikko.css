@@ -29,10 +29,10 @@
         font-family: 'Nunito', sans-serif;
         font-size: 4vh;
         font-weight: 600;
-        color: #cb2d3e;
+        color: antiquewhite;
       }
         .emoji:active {
-            color: antiquewhite;
+            color: white;
             font-size: 3vh;
         }
       /* .nav-item {

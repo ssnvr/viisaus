@@ -22,7 +22,7 @@ namespace visdom_api.Controllers
         // GET: api/Posts
         public IQueryable<Post> GetPosts()
         {
-            return db.Posts;
+            return db.Posts.OrderByDescending(p => p.Time);
         }
 
         // GET: api/Posts/5

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Login.css'
-import { getUsers , getUser} from '../ServiceDesk';
+import { getUser } from '../ServiceDesk';
 
 class Login extends Component {
     constructor(props) {
@@ -31,13 +31,14 @@ class Login extends Component {
 
     ready = (e) => {
         e.preventDefault();
+        this.props.isLoading();
         this.foundInDatabase();
         this.setState({ name: '', password: '' });
-        console.dir(this.state.isLoading)
     }
 
     render() {
         return (
+            <React.Fragment>
             <div className="container">
                 <form onSubmit={this.ready}>
                      <input className="teksti" placeholder="Nickname" value={this.state.name} onChange={this.nameChanged} required/> <br />
@@ -45,8 +46,10 @@ class Login extends Component {
                     <input className="nappi" type="submit" value="Login"/>
 
                 </form>
-                <p className="luoUusi" onClick={this.handleClick}>Create new account</p>
             </div>
+            <p className="luoUusi" onClick={this.handleClick}>Create new account</p>
+
+            </React.Fragment>
         );
     }
 }

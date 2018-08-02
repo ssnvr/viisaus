@@ -1,6 +1,5 @@
 //tein tämän tiedoston koska en osaa hahmottaa kun kaikki on app.js
 
-
 export function getMessages(callback) {
   fetch( "api/posts/")
   .then(function (response) {
@@ -18,6 +17,7 @@ export function getMessages(callback) {
     callback(list);
   });
 }
+
 export function getMessagesWithEmoijtag(emoijtag ,callback) {
   let emoijonary =  [
     { emoij: "🦄", name: "unicorn" },
@@ -31,7 +31,6 @@ export function getMessagesWithEmoijtag(emoijtag ,callback) {
   ]
 
   let obj = emoijonary.find(o => o.emoij === emoijtag)
-console.log(obj);
   fetch( "api/posts/" + obj.name)
   .then(function (response) {
     if (!response.ok) {
@@ -48,6 +47,7 @@ console.log(obj);
     callback(list);
   });
 }
+
 export function addNewMessage(msg, callback){
   fetch( "api/posts/",{
     method: 'POST',
@@ -87,6 +87,7 @@ export function addNewUser(msg, callback){
     callback(response.status);
   });
 }
+
 export function putVote(post, callback){
   fetch( "api/posts/" + post.Id,{
     method: 'PUT',
@@ -97,10 +98,10 @@ export function putVote(post, callback){
     callback(response.status);
   });
 }
+
 export function getUser(name, password, callback) {
   fetch( "api/users/" + name + "/" + password)
   .then(function (response) {
-    console.log(response)
     if (!response.ok) {
       const errmsg = {
         status: response.status,

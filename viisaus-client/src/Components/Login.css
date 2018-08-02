@@ -1,33 +1,36 @@
 .container {
-width: 100%;
-height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%);
 }  
 .loggaus {
     font-size: 3.2vh;
 }
 .nappi {
-border-radius: 25px;
-padding-left: 1.6vh;
-padding-right: 1.6vh;
-font-family: 'Nunito', sans-serif;
-font-weight: 600;
-background-color: antiquewhite;
-color: #cb2d3e;
-/* margin-left: 13vh; */
-position: absolute;
-left: 50%;
-transform: translate(-50%);
-margin-top: 9vh;
-width: 30vw;
-height: 5vh;
+  border-radius: 25px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  background-color: antiquewhite;
+  color: #cb2d3e;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 9vh;
+  height: 5vh;
+  width: 60%;
+  border: 0;
 }
+
 .teksti {
-border-radius: 10px;
-height: 4vh;
-font-family: 'Nunito', sans-serif;
-background-color: antiquewhite;
-margin: 1vh;
-padding-left: 3vw;
+  border-radius: 25px;
+  height: 5vh;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.5em;
+  background-color: antiquewhite;
+  margin: 1vh;
+  padding-left: 3vw;
+  border: 0;
 }
 /* .teksti:active {
     border-radius: 10px;
@@ -35,10 +38,10 @@ padding-left: 3vw;
 /* } */
 .luoUusi {
     font-size: 2.8vh;
-    font-weight: 600;
-    margin-top: 10vh;
+    width: 100%;
+    bottom: 0px;
+    position: fixed;
     text-align: center;
-
 
 
 }

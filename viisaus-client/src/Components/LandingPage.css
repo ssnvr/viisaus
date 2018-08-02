@@ -1,17 +1,14 @@
-html {
-    width: 100%;
-    height: 100%;
-}
 .landing {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
+    height: 100%;
+    width: 100%;
 }
+
 .paaotsikko {
     font-family: 'Pacifico', cursive;
     font-size: 10vh;
     color: antiquewhite;
     text-align: center;
-    padding-top: 2vh;
+    position: relative;
+    top: 20%;
 }
 
