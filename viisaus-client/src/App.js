@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Valikko from './Components/Valikko';
-import Post from './Components/Post';
-import Login from './Components/Login';
-import Create from './Components/Create';
 import PostList from './Components/PostList';
-import { addNewMessage, getMessages } from './ServiceDesk';
 import LandingPage from './Components/LandingPage';
-import Message from './Components/Message';
 
 class App extends Component {
   state = {
@@ -23,15 +18,6 @@ class App extends Component {
     this.activateUser = this.activateUser.bind(this);
   }
 
-  //   fetch("/api/posts/")
-  //     .then(res => res.json())
-  //     .then(json => {
-  //       console.log("posts")
-  //       this.setState({
-  //         data: json,
-  //       });
-  //     });
-  // }
 
   changeMood = (mood) => {
     this.setState({
@@ -52,36 +38,14 @@ class App extends Component {
 
   render() {
     return (
-//       <div className="App">
-
 
       <div className="App">
        
       {this.state.activeUser===null&&<LandingPage activateUser={this.activateUser}/>}
 
       {this.state.activeUser != null && <Valikko changeMood={this.changeMood}/>} 
-      {this.state.activeMood != null && <PostList data={this.state.data} handleVote={this.handleVote}/>}
+      {this.state.activeMood != null && <PostList activeMood={this.state.activeMood} data={this.state.data} handleVote={this.handleVote}/>}
       
-        {/* <Valikko />
-        <Post />
-        <Login />
-
-        <Create />
-        <PostList />
-        <Message />
-
-        <Create />
-
-        /* <PostList data={this.state.data} handleVote={this.handleVote} addMessage={this.addMessage}/> */
-
-        /* <Valikko />
-       
-        <Login />
-        <Create /> */}
-        {/* <Message data={this.state.data} /> */}
-        {/* <PostList data={this.state.data} handleVote={this.handleVote} /> */}
-        {/* <Create udata={this.state.udata} /> */}
-
       </div>
     )
   }
