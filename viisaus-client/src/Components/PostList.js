@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Post from './Post';
 import Message from './Message';
+import Valikko from './Valikko';
 import '../App.css';
 
 class PostList extends Component {
@@ -23,10 +24,10 @@ class PostList extends Component {
                     data: json,
                 });
             });
-            
-     
+
+
     }
-    
+
     updateMessages(messages){
         this.setState({
             data: messages
@@ -43,14 +44,21 @@ class PostList extends Component {
             .map(function (post) {
                 return (<Post data={post} key={post.Id} handleVote={handleVote} />);
             });
-
         return (
+          <div>
+            <Valikko changeMood={this.props.changeMood}/>
             <div className="card-columns">
             <div className="postList">
                 {messages}
-                <Message data={this.state.data} activeMood={this.props.activeMood} updateMessages={this.updateMessages} activeUser={this.props.activeUser} />
+                <Message
+                  data={this.state.data}
+                  activeMood={this.props.activeMood}
+                  updateMessages={this.updateMessages}
+                  activeUser={this.props.activeUser}
+                  />
             </div>
             </div>
+          </div>
         )
     }
 }
