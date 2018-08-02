@@ -7,7 +7,7 @@ class PostList extends Component {
 
     state = {
         data: [],
-        activeMood: this.activeMood
+        activeMood: this.props.activeMood
     }
     constructor(props){
         super(props)
@@ -30,7 +30,7 @@ class PostList extends Component {
 
     render() {
         const {
-            
+
             handleVote
         } = this.props;
 
@@ -48,4 +48,3 @@ class PostList extends Component {
     }
 }
 export default PostList;
-
