@@ -4,12 +4,9 @@ import Message from './Message';
 import Valikko from './Valikko';
 import '../App.css';
 import { getMessagesWithEmoijtag } from '../ServiceDesk';
-
-import './PostList.css'
-
+import './PostList.css';
 
 class PostList extends Component {
-
 
   constructor(props){
     super(props);
@@ -45,7 +42,7 @@ class PostList extends Component {
     });
     return (
       <div>
-        <Valikko changeMood={this.props.changeMood}/>
+        <Valikko changeMood={this.props.changeMood} deactivateUser={this.props.deactivateUser}/>
         <div className="card-columns">
           <div className="postList">
             {messages}
