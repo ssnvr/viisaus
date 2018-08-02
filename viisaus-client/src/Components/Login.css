@@ -15,11 +15,14 @@ font-family: 'Nunito', sans-serif;
 font-weight: 600;
 background-color: antiquewhite;
 color: #cb2d3e;
-margin-left: 14vh;
+margin-left: 13vh;
 margin-top: 1.5vh;
+width: 26vw;
+height: 5vh;
 }
 .teksti {
 border-radius: 10px;
+height: 4vh;
 font-family: 'Nunito', sans-serif;
 background-color: antiquewhite;
 margin: 1vh;
@@ -29,5 +32,5 @@ margin: 1vh;
     font-size: 2.8vh;
     font-weight: 600;
     padding-top: 3vh;
-    padding-left: 7vh;
+    padding-left: 14vw;
 }

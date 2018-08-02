@@ -7,7 +7,7 @@ class PostList extends Component {
 
     state = {
         data: [],
-        activeMood: this.activeMood
+        activeMood: this.props.activeMood
     }
     constructor(props){
         super(props)
@@ -30,7 +30,7 @@ class PostList extends Component {
 
     render() {
         const {
-            
+
             handleVote
         } = this.props;
 
@@ -40,12 +40,13 @@ class PostList extends Component {
             });
 
         return (
+            <div className="card-columns">
             <div className="postList">
                 {messages}
                 <Message data={this.state.data} activeMood={this.state.activeMood} updateMessages={this.updateMessages} />
+            </div>
             </div>
         )
     }
 }
 export default PostList;
-

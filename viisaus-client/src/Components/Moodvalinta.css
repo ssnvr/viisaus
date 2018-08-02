@@ -1,0 +1,22 @@
+div {
+    padding-bottom: 10vh;
+}
+.boxi {
+    padding-left: 14vw;
+    padding-right: 10vw;
+    margin-top: -5vh;
+}
+.moodi {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 7vh;
+    text-align: center;
+    padding-top: 12vh;
+    line-height: 10vh;
+}
+.emojit {
+    font-size: 6vh;
+    letter-spacing: 4vw;
+   
+
+}
