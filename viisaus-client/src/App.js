@@ -60,7 +60,7 @@ class App extends Component {
       {this.state.activeUser===null&&<LandingPage activateUser={this.activateUser}/>}
 
       {this.state.activeUser != null && <Valikko changeMood={this.changeMood}/>} 
-      {this.state.activeMood != null && <PostList/>}
+      {this.state.activeMood != null && <PostList data={this.state.data} handleVote={this.handleVote}/>}
       
         {/* <Valikko />
         <Post />
