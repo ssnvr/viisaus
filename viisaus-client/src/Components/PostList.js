@@ -17,9 +17,11 @@ class PostList extends Component {
             });
 
         return (
+            <div className="card-columns">
             <div className="postList">
                 {messages}
                 <Message data={this.data} />
+            </div>
             </div>
         )
     }

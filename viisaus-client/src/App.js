@@ -56,14 +56,16 @@ class App extends Component {
 
 
       <div className="App">
-       
-      {this.state.activeUser===null&&<LandingPage activateUser={this.activateUser}/>}
+      <Valikko/>
+      <Post/>
+      <Message/>
+       {/* {this.state.activeUser===null&&<LandingPage activateUser={this.activateUser}/>} */}
 
-      {this.state.activeUser != null && <Valikko changeMood={this.changeMood}/>} 
-      {this.state.activeMood != null && <PostList data={this.state.data} handleVote={this.handleVote}/>}
+      {/* {this.state.activeUser != null && <Valikko changeMood={this.changeMood}/>}   */}
+      {/* this.state.activeMood != null && <PostList data={this.state.data} handleVote={this.handleVote}/> */}
       
-        {/* <Valikko />
-        <Post />
+         {/* <Valikko /> */}
+        {/* <Post />
         <Login />
 
         <Create />

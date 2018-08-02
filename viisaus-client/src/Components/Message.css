@@ -1,21 +1,34 @@
+.pohja {
+    position: fixed;
+    width: 100%;
+    margin-top: 3vh;
+    bottom: 2vh;
+}
 .message {
-    padding-top: 3vh;
-    padding-bottom: 30vh;
-    padding-left: 7vh !important;
+    /* left: 50%;
+    position: absolute;
+    transform: translate(-50%); */
+    float: left;
+
 }
 .submitMessage {
-border-radius: 25px;
-padding-left: 1.6vh;
-padding-right: 1.6vh;
-font-family: 'Nunito', sans-serif;
-font-weight: 600;
-background-color: antiquewhite;
-color: #cb2d3e;
+border-radius: 20px;
+float: right;
+border: solid 2px white;
+font-size: 4vh;
+background-color: #cb2d3e;
+padding-bottom: 1vh;
+margin-right: 3vw;
+margin-top: 1vh;
+
 }
 
 .tekstibox {
     border-radius: 15px;
-    padding: 1vh;
+    padding: 2vh;
+    margin-left: 4vw;
+    height: 5vh;
+    font-family: 'Nunito', sans-serif;
 }
 /* .tekstibox:active {
     size: 
