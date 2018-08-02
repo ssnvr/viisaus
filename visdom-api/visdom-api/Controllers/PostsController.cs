@@ -68,6 +68,16 @@ namespace visdom_api.Controllers
                     throw;
                 }
             }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Console.WriteLine($"Property: {validationError.PropertyName} Error: {validationError.ErrorMessage}");
+                    }
+                }
+            }
 
             return StatusCode(HttpStatusCode.NoContent);
         }

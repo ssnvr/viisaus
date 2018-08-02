@@ -1,33 +1,53 @@
 import React, { Component } from 'react';
 import Vote from './Vote';
+import { putVote } from '../ServiceDesk'
 import './Post.css'
 
-class Post extends Component{
-  state={counter: '' }
+class Post extends Component {
 
+  constructor(props) {
+    super(props)
 
+    const {
+      Message,
+      Vote,
+      Id
+    } = this.props.data;
 
-  render(){
-    const{
-      message,
-      handleVote
-    } = this.props;
-    
+    this.state = {
+      Message,
+      Vote,
+      Id
+    }
+
+    this.handleVote = this.handleVote.bind(this);
+  }
+
+  handleVote() {
+    let post = this.props.data;
+    post.Vote++
+    putVote(post, function(res) {
+      console.log(res);
+      this.setState({
+        Vote: this.state.Vote + 1
+      })
+    }.bind(this))
+  }
+
+  render() {
     return(
       <div className="card text-right">
       <div className="card-body">
       <h5 className="card-title"> 😍 </h5> 
-        <p className="card-text">Tämä on esimerkkiviesti blaablaablaa
-        blaablaablaablaaa
-        blaaaaab
-        alalalalalal{message}</p>
-        <Vote handleVote={handleVote}/>
-        <p className="card-text" id="tykkaykset" >0 1 2 3 4 5 6 7 8 9{this.state.counter}</p> 
+        <p className="card-text">{this.state.Message}</p>
+        <Vote handleVote={this.handleVote}/>
+        <p className="card-text" id="tykkaykset" >  {this.state.Vote} </p> 
         </div>
       </div>
-    );    
+    );
   }
 }
+
 export default Post;
 <div class="card text-right" style="width: 18rem;">
   <div class="card-body">

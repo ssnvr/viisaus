@@ -59,6 +59,16 @@ export function addNewUser(msg, callback){
      callback(response.status);
    });
  }
+ export function putVote(post, callback){
+      fetch( "api/posts/" + post.Id,{
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(post)
+    })
+    .then(function (response){
+      callback(response.status);
+    });
+  }
  export function getUser(name, password, callback) {
     fetch( "api/users/" + name + "/" + password)
         .then(function (response) {
