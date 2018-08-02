@@ -31,15 +31,12 @@ class Create extends Component {
   render() {
     return (
       <div className="create">
-        <h5>
-          Create account:
-        </h5>
-
+       
         <form onSubmit={this.CreateUser}>
-          Nickname: <input className="teksti" value={this.state.name} onChange={this.nameChanged} minLength="3" maxLength="50"/>  <br />
-          Password: <input className="teksti" type="password" value={this.state.password} onChange={this.passwordChanged} minLength="6" maxLength="50"/>
+          <input className="teksti" placeholder="Nickname" value={this.state.name} onChange={this.nameChanged} required minLength="3" maxLength="50"/>  <br />
+          <input className="teksti" placeholder="Password" type="password" value={this.state.password} onChange={this.passwordChanged} required minLength="6" maxLength="50"/>
         
-          <input className="nappi2" type="submit" onClick={this.handleClick}/>
+          <input className="nappi2" type="submit" value="Create account" onClick={this.handleClick}/>
         </form>
       </div>
     );

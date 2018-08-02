@@ -23,14 +23,6 @@ class App extends Component {
     })
   }
 
-  handleVote = (e) => {
-    if (e.currentTarget.dataset.votedirection === "up") {
-      console.log("lol")
-    }
-  }
-
-
-
   activateUser = (user) => this.setState({ activeUser: user });
 
 
@@ -46,7 +38,6 @@ class App extends Component {
           
         {this.state.activeMood != null &&
           <PostList data={this.state.data}
-            handleVote={this.handleVote}
             activeUser={this.state.activeUser}
             activeMood={this.state.activeMood}
             changeMood={this.changeMood}

@@ -9,13 +9,17 @@ class Vote extends Component {
   };
 
   upVote = (e) => {
-    this.props.handleVote(e);
+    this.props.handleVoteUp(e);
     this.setState({upvote: !this.state.upvote});
+    console.dir("ylös")
+    console.log(this.state)
   }
 
   downVote = (e) => {
-    this.props.handleVote(e);
+    this.props.handleVoteDown(e);
     this.setState({downvote: !this.state.downvote});
+    console.dir("alas")
+    console.log(this.state)
   }
 
   render() {

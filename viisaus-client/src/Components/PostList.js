@@ -12,12 +12,12 @@ class PostList extends Component {
 
         activeMood: this.props.activeMood
     }
-    constructor(props){
+    constructor(props) {
         super(props)
-        this.updateMessages=this.updateMessages.bind(this);
+        this.updateMessages = this.updateMessages.bind(this);
 
     }
-    componentDidMount(){
+    componentDidMount() {
         fetch("api/posts/")
             .then(res => res.json())
             .then(json => {
@@ -29,37 +29,34 @@ class PostList extends Component {
 
     }
 
-    updateMessages(messages){
+    updateMessages(messages) {
         this.setState({
             data: messages
         })
     }
 
     render() {
-        const {
-
-            handleVote
-        } = this.props;
-
+       
         let messages = this.state.data
+
             .map(function (post) {
-                return (<Post data={post} key={post.Id} handleVote={handleVote} />);
-            });
+                return (<Post data={post} key={post.Id} />);
+            }.bind(this));
         return (
-          <div>
-            <Valikko changeMood={this.props.changeMood}/>
-            <div className="card-columns">
-            <div className="postList">
-                {messages}
-                <Message
-                  data={this.state.data}
-                  activeMood={this.props.activeMood}
-                  updateMessages={this.updateMessages}
-                  activeUser={this.props.activeUser}
-                  />
+            <div>
+                <Valikko changeMood={this.props.changeMood} />
+                <div className="card-columns">
+                    <div className="postList">
+                        {messages}
+                        <Message
+                            data={this.state.data}
+                            activeMood={this.props.activeMood}
+                            updateMessages={this.updateMessages}
+                            activeUser={this.props.activeUser}
+                        />
+                    </div>
+                </div>
             </div>
-            </div>
-          </div>
         )
     }
 }
