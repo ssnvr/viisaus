@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NeoSmart.Unicode;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -26,15 +27,40 @@ namespace visdom_api.Controllers
 
         // GET: api/Posts/5
         [ResponseType(typeof(Post))]
-        public IHttpActionResult GetPost(int id)
+        public IHttpActionResult GetPost(string id)
         {
-            Post post = db.Posts.Find(id);
-            if (post == null)
+            Dictionary<string, SingleEmoji> emojionary = new Dictionary<string, SingleEmoji>()
+            {
+                { "unicorn", Emoji.UnicornFace},
+                { "rofl", Emoji.RollingOnTheFloorLaughing},
+                { "beer", Emoji.ClinkingBeerMugs},
+                { "cool", Emoji.SmilingFaceWithSunglasses},
+                { "poop", Emoji.PileOfPoo},
+                { "mindblown", Emoji.ExplodingHead},
+                { "praise", Emoji.RaisingHands},
+                { "hearteyes", Emoji.SmilingFaceWithHeartEyes},
+            };
+
+            SingleEmoji emoji = emojionary[id];
+
+            IQueryable<Post> posts = db.Posts;
+
+            List<Post> returnPosts = new List<Post>();
+
+            foreach (Post post in posts)
+            {
+                if (post.Emoijtag == emoji.ToString())
+                {
+                    returnPosts.Add(post);
+                }
+            }
+
+            if (returnPosts.AsQueryable() == null)
             {
                 return NotFound();
             }
 
-            return Ok(post);
+            return Ok(returnPosts.AsQueryable());
         }
 
         // PUT: api/Posts/5

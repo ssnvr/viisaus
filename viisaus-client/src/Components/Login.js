@@ -27,11 +27,13 @@ class Login extends Component {
     handleClick = (e) => {
         this.props.changeRegistered()
     }
+    
 
     ready = (e) => {
         e.preventDefault();
         this.foundInDatabase();
         this.setState({ name: '', password: '' });
+        console.dir(this.state.isLoading)
     }
 
     render() {
