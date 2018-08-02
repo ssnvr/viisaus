@@ -4,12 +4,34 @@ import './Message.css';
 
 class Message extends Component {
 
-  state = {
-    data: [],
-    Message: '',
-    emoijtag: this.props.activeMood
-  };
 
+    state = {
+        data: [],
+        Message: '',
+        activeUser: '',
+        activeMood: ''
+    };
+
+
+    constructor(props) {
+        super(props);
+       
+    
+        this.addMessage = this.addMessage.bind(this);
+        this.sendMessage = this.sendMessage.bind(this);
+      
+       
+    
+    }
+    componentWillReceiveProps(props){
+        console.log("Message State:");
+     
+        this.setState({activeUser:props.activeUser});
+        this.setState({activeMood: props.activeMood});
+   
+        console.dir(this.state);
+    }
+   
     messageCreated = (e) => {
       this.setState({ Message: e.target.value });
     }
@@ -18,16 +40,16 @@ class Message extends Component {
       let pituus = this.state.Message.length;
       if (pituus > 160) {
 
-        this.state.Message.trim('a', 'e', 'i', 'o', 'u', 'y', 'å', 'ä', 'ö');
-        console.log(this.state.Message);
 
-        this.setState({ Message: this.state.Message.replace(/[aeiouyåäö]/gi, '') });
-
+            let trimmattu = this.state.Message.replace(/[aeiouyåäö]/gi, '')
+            this.setState({ Message: trimmattu });
 
       }
     }
-    componentDidMount(){
-      this.getMessagesAndUpdate();
+
+    componentDidMount() {
+        this.getMessagesAndUpdate();
+
     }
     getMessagesAndUpdate = () => {
       getMessages(function (list) {
@@ -37,26 +59,30 @@ class Message extends Component {
     } //tämäkin on joku Annin hämärä funktio
 
     addMessage = (msg) => {
-      addNewMessage(msg, function () {
-        this.getMessagesAndUpdate();
-      }.bind(this));
+        msg.User_Id = this.state.activeUser.Id;
+        msg.Emoijtag = this.state.activeMood;
+        this.checkLength();
+        addNewMessage(msg, function () {
+            this.getMessagesAndUpdate();
+        }.bind(this));
     }
     sendMessage = (e) => {
-      e.preventDefault();
-      this.checkLength();
-      this.addMessage(this.state); //tässä on iso onglema
-      this.setState({ Message: '' });
+        e.preventDefault();
+        this.addMessage(this.state); //tässä on iso onglema 
+        this.setState({ Message: '' });
+
     }
     render() {
 
         console.log(this.state);
         return (
 
+
             <footer className="pohja">
             <div className="row">
                 <textarea className="tekstibox" rows="1" cols="35" placeholder="Write your message here!" value={this.state.Message} onChange={this.messageCreated} minLength="5" maxLength="160" />
                 <input className="submitMessage" type="submit" value="💌" onClick={this.sendMessage} />
-         
+
             </div>
             </footer>
         )

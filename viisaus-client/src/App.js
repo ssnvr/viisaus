@@ -28,35 +28,19 @@ class App extends Component {
     }
   }
 
+
+
   activateUser = (user) => this.setState({ activeUser: user });
+
 
   render = () => {
     return (
       <div className="App">
 
-      <Valikko/>
-      <Post/>
-      <Message/>
-       {/* {this.state.activeUser===null&&<LandingPage activateUser={this.activateUser}/>} */}
-
-      {/* {this.state.activeUser != null && <Valikko changeMood={this.changeMood}/>}   */}
-      {/* this.state.activeMood != null && <PostList data={this.state.data} handleVote={this.handleVote}/> */}
-      
-         {/* <Valikko /> */}
-        {/* <Post />
-        <Login />
-
-        <Create />
-        <PostList />
-        <Message />
-
-        <Create />
-
-        /* <PostList data={this.state.data} handleVote={this.handleVote} addMessage={this.addMessage}/> */
-
         {this.state.activeUser === null && <LandingPage activateUser={this.activateUser}/>}
         {this.state.activeUser != null && this.state.activeMood === null && <Valikko changeMood={this.changeMood}/>}
-        {this.state.activeMood != null && <PostList data={this.state.data} handleVote={this.handleVote} activeMood={this.state.activeMood}/>}
+        {this.state.activeMood != null && <PostList data={this.state.data} handleVote={this.handleVote} activeUser={this.state.activeUser} activeMood={this.state.activeMood}/>}
+
 
       </div>
     )

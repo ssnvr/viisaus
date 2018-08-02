@@ -92,7 +92,6 @@ namespace visdom_api.Controllers
 
                 return BadRequest(ModelState);
             }
-            
 
             post.Time = DateTime.Now;
             db.Posts.Add(post);
