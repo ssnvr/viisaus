@@ -1,38 +1,33 @@
 @media only screen and (max-width: 400px) {
    .valikko {
     float: left;
+    position: fixed;
    
    }
-    .valikkopala {
+    /* .valikkopala {
         background-color: antiquewhite;
-        opacity: 20%;
         width: 5vh;
         border-radius: 25px;
         margin-left: 2vh;
-
-    }
+    } */
     .V {
         font-family: 'Pacifico', cursive;
-        font-size: 6vh !important;
-        color: antiquewhite !important;
+        font-size: 6.5vh;
+        color: antiquewhite;
         padding-left: 1.6vh;
     }
-    
-    .V:hover {
-        font-size: 6vh !important;
-        color: antiquewhite;
-      }
     ul {
+ 
         list-style: none;
-        margin-left: -5.5vh;
-        margin-top: -1vh;
+        margin-left: -4.2vh;
+        margin-top: -2vh;
         padding-top: 1vh;
         padding-bottom: 1vh;
     }
 
       .emoji {
         font-family: 'Nunito', sans-serif;
-        font-size: 3vh;
+        font-size: 4vh;
         font-weight: 600;
         color: #cb2d3e;
       }

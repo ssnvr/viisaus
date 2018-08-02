@@ -3,9 +3,12 @@ import {getUsers, addNewUser} from '../ServiceDesk';
 import './Create.css';
 
 class Create extends Component {
+    state={
+        createFailed: false,
+    }
 
   constructor(props) {
-    super(props);
+    super(props);    
     this.state = {
       name: '',
       password: '',
@@ -17,8 +20,15 @@ class Create extends Component {
   passwordChanged = (e) => this.setState({ password: e.target.value })
 
   addUser = (state) => {
-    addNewUser(state, function (){
-      this.props.backToLogin();
+    addNewUser(state, function (response){
+      console.log(response);
+      if(response==401){
+          alert("Try again, Nickname is not awailable!")
+      }
+      else{
+        this.props.backToLogin();
+      }
+      
     }.bind(this));
   }
 
@@ -27,19 +37,16 @@ class Create extends Component {
     this.addUser(this.state);
     this.setState({ name: '', password: '' });
   }
-
+ 
   render() {
     return (
-      <div className="create">
-        <h5>
-          Create account:
-        </h5>
-
+      <div className="create" id="alert">
+       
         <form onSubmit={this.CreateUser}>
-          Nickname: <input className="teksti" value={this.state.name} onChange={this.nameChanged} minLength="3" maxLength="50"/>  <br />
-          Password: <input className="teksti" type="password" value={this.state.password} onChange={this.passwordChanged} minLength="6" maxLength="50"/>
+          <input className="teksti" placeholder="Nickname" value={this.state.name} onChange={this.nameChanged} required minLength="3" maxLength="50"/>  <br />
+          <input className="teksti" placeholder="Password" type="password" value={this.state.password} onChange={this.passwordChanged} required minLength="6" maxLength="50"/>
         
-          <input className="nappi2" type="submit" onClick={this.handleClick}/>
+          <input className="nappi2" type="submit" value="Create account" onClick={this.handleClick}/>
         </form>
       </div>
     );

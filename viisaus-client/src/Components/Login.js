@@ -27,21 +27,23 @@ class Login extends Component {
     handleClick = (e) => {
         this.props.changeRegistered()
     }
+    
 
     ready = (e) => {
         e.preventDefault();
         this.foundInDatabase();
         this.setState({ name: '', password: '' });
+        console.dir(this.state.isLoading)
     }
 
     render() {
         return (
             <div className="container">
-                <h5 className="loggaus">Login</h5>
                 <form onSubmit={this.ready}>
-                    Nickname: <input className="teksti" value={this.state.name} onChange={this.nameChanged} /> <br />
-                    Password: <input className="teksti" type="password" value={this.state.password} onChange={this.passwordChanged} />
-                    <input className="nappi" type="submit" />
+                     <input className="teksti" placeholder="Nickname" value={this.state.name} onChange={this.nameChanged} required/> <br />
+                     <input className="teksti" placeholder="Password" type="password" value={this.state.password} onChange={this.passwordChanged} required/>
+                    <input className="nappi" type="submit" value="Login"/>
+
                 </form>
                 <p className="luoUusi" onClick={this.handleClick}>Create new account</p>
             </div>

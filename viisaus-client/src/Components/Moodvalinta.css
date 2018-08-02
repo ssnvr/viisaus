@@ -1,9 +1,13 @@
-div {
-    padding-bottom: 10vh;
+html, body, #root {
+    width: 100%;
+    height: 100%;
 }
 .boxi {
-    padding-left: 14vw;
-    padding-right: 10vw;
+    /* padding-left: 14vw;
+    padding-right: 10vw; */
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
     margin-top: -5vh;
 }
 .moodi {
@@ -17,6 +21,7 @@ div {
 .emojit {
     font-size: 6vh;
     letter-spacing: 4vw;
+    line-height: 8vh;
    
 
 }

@@ -5,6 +5,9 @@ import Valikko from './Valikko';
 import '../App.css';
 import { getMessagesWithEmoijtag } from '../ServiceDesk';
 
+import './PostList.css'
+
+
 class PostList extends Component {
 
 

@@ -28,6 +28,7 @@ class Message extends Component {
     let pituus = this.state.Message.length;
     if (pituus > 160) {
 
+
       let trimmattu = this.state.Message.replace(/[aeiouyåäö]/gi, '')
       this.setState({ Message: trimmattu });
     }
@@ -35,7 +36,6 @@ class Message extends Component {
 
   componentDidMount() {
     this.getMessagesAndUpdate();
-
   }
   getMessagesAndUpdate = () => {
     getMessagesWithEmoijtag(this.props.activeMood, function (list) {
@@ -59,14 +59,14 @@ class Message extends Component {
   }
   render() {
     return (
-      <footer className="pohja">
-        <div className="row">
-          <textarea className="tekstibox" rows="1" cols="35" placeholder="Write your message here!" value={this.state.Message} onChange={this.messageCreated} minLength="5" maxLength="160" />
-          <input className="submitMessage" type="submit" value="💌" onClick={this.sendMessage} />
-
-        </div>
-      </footer>
-    )
+      
+            <footer className="pohja">
+            <div className="msggroup">
+                <textarea className="tekstibox" rows="1" cols="35" placeholder="Write your message here!" value={this.state.Message} onChange={this.messageCreated} minLength="5" maxLength="160" />
+                <input className="submitMessage" type="submit" value="💌" onClick={this.sendMessage} />
+            </div>
+            </footer>
+        )
 
   }
 }
