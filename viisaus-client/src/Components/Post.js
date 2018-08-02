@@ -14,7 +14,6 @@ class Post extends Component {
       Id
     } = this.props.data;
 
-
     this.state = {
       Message,
       Vote,
