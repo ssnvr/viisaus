@@ -68,6 +68,16 @@ namespace visdom_api.Controllers
                     throw;
                 }
             }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Console.WriteLine($"Property: {validationError.PropertyName} Error: {validationError.ErrorMessage}");
+                    }
+                }
+            }
 
             return StatusCode(HttpStatusCode.NoContent);
         }
@@ -76,34 +86,16 @@ namespace visdom_api.Controllers
         [ResponseType(typeof(Post))]
         public IHttpActionResult PostPost(Post post)
         {
-            
+
             if (!ModelState.IsValid)
             {
 
                 return BadRequest(ModelState);
             }
-            //if (post.Message.Length > 160)
-            //{
-            //    StringBuilder sbTrim = new StringBuilder("");
-            //    var trimmaa = new HashSet<char>(post.Message.ToLower());
-            //    trimmaa.ExceptWith("aeiouyåäö ");
-            //    string trimmattu = "";
-            //    foreach (char v in trimmaa)
-            //    {
-            //        sbTrim.Append(v);
 
-            //    }
-            //    trimmattu = sbTrim.ToString();
-            //    post.Emoijtag = "jeejee";
-            //    post.Time = DateTime.Now;
-            //    post.Message = trimmattu;
-            //    db.Posts.Add(post);
-            //}
-            //else
-            //{
-                post.Time = DateTime.Now;
-                db.Posts.Add(post);
-            //}
+            post.Time = DateTime.Now;
+            db.Posts.Add(post);
+
             try
             {
                 db.SaveChanges();
@@ -119,11 +111,11 @@ namespace visdom_api.Controllers
                     throw;
                 }
             }
-            catch(DbEntityValidationException dbEx)
+            catch (DbEntityValidationException dbEx)
             {
                 foreach (var validationErrors in dbEx.EntityValidationErrors)
                 {
-                    foreach(var validationError in validationErrors.ValidationErrors)
+                    foreach (var validationError in validationErrors.ValidationErrors)
                     {
                         Console.WriteLine($"Property: {validationError.PropertyName} Error: {validationError.ErrorMessage}");
                     }

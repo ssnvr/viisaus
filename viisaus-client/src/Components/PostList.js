@@ -7,7 +7,8 @@ class PostList extends Component {
 
     state = {
         data: [],
-        // activeMood: this.activeMood
+
+        activeMood: this.props.activeMood
     }
     constructor(props){
         super(props)
@@ -34,22 +35,23 @@ class PostList extends Component {
 
     render() {
         const {
-            
+
             handleVote
         } = this.props;
 
         let messages = this.state.data
             .map(function (post) {
-                return (<Post message={post.Message} key={post.Id} handleVote={handleVote} />);
+                return (<Post data={post} key={post.Id} handleVote={handleVote} />);
             });
 
         return (
+            <div className="card-columns">
             <div className="postList">
                 {messages}
                 <Message data={this.state.data} activeMood={this.props.activeMood} updateMessages={this.updateMessages} activeUser={this.props.activeUser} />
+            </div>
             </div>
         )
     }
 }
 export default PostList;
-
