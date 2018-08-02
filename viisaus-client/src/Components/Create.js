@@ -23,7 +23,7 @@ class Create extends Component {
     addNewUser(state, function (response){
       console.log(response);
       if(response==401){
-          alert("Try again, Nickname not awailable!")
+          alert("Try again, Nickname is not awailable!")
       }
       else{
         this.props.backToLogin();
