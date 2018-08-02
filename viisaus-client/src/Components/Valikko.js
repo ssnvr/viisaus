@@ -29,29 +29,29 @@ class Valikko extends Component {
           <ul className="emojilist">
 
             <li className="nav-item">
-              <a className="emoji" onClick={() => this.props.changeMood('heart')} ><span role="img">😍</span></a>
+              <a className="emoji" onClick={() => this.props.changeMood('😍')} ><span role="img">😍</span></a>
             </li>
             <li className="nav-item">
-              <a className="emoji" onClick={() => this.props.changeMood('hands')}><span role="img">🙌</span></a>
+              <a className="emoji" onClick={() => this.props.changeMood('🙌')}><span role="img">🙌</span></a>
             </li>
             <li className="nav-item">
-              <a className="emoji" onClick={() => this.props.changeMood('wow')}><span role="img">🤯</span></a>
+              <a className="emoji" onClick={() => this.props.changeMood('🤯')}><span role="img">🤯</span></a>
             </li>
             <li className="nav-item">
-              <a className="emoji" onClick={() => this.props.changeMood('poop')}><span role="img">💩</span></a>
+              <a className="emoji" onClick={() => this.props.changeMood('💩')}><span role="img">💩</span></a>
             </li>
             <li className="nav-item">
-              <a className="emoji" onClick={() => this.props.changeMood('sunclasses')}><span role="img">😎</span></a> 
+              <a className="emoji" onClick={() => this.props.changeMood('😎')}><span role="img">😎</span></a> 
             </li>
             <li className="nav-item">
-              <a className="emoji" onClick={() => this.props.changeMood('beer')}><span role="img">🍻</span></a>
+              <a className="emoji" onClick={() => this.props.changeMood('🍻')}><span role="img">🍻</span></a>
             </li>
             <li className="nav-item">
-              <a className="emoji" onClick={() => this.props.changeMood('xd')}><span role="img">🤣</span></a>
+              <a className="emoji" onClick={() => this.props.changeMood('🤣')}><span role="img">🤣</span></a>
             </li>
             <li className="nav-item">
 
-              <a className="emoji" onClick={() => this.props.changeMood('unicorn')}><span role="img">🦄</span></a>
+              <a className="emoji" onClick={() => this.props.changeMood('🦄')}><span role="img">🦄</span></a>
 
             </li>
             <li className="nav-item active">
