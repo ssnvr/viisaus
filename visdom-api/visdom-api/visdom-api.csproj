@@ -53,6 +53,9 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NeoSmart.Unicode, Version=0.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unicode.net.0.1.2\lib\net45\NeoSmart.Unicode.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
