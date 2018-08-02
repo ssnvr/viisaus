@@ -28,7 +28,8 @@ class App extends Component {
     }
   }
   
-  activateUser = (user) => this.setState({ activeUser: user });
+  activateUser = (user) =>{this.setState({ activeUser: user });
+}
 
   render = () => {
     return (
@@ -36,7 +37,7 @@ class App extends Component {
      
         {this.state.activeUser === null && <LandingPage activateUser={this.activateUser}/>}
         {this.state.activeUser != null && this.state.activeMood === null && <Valikko changeMood={this.changeMood}/>}
-        {this.state.activeMood != null && <PostList data={this.state.data} handleVote={this.handleVote}/>}
+        {this.state.activeMood != null && <PostList data={this.state.data} handleVote={this.handleVote} activeUser={this.state.activeUser} activeMood={this.state.activeMood}/>}
 
       </div>
     )

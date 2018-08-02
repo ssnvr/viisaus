@@ -4,10 +4,32 @@ import './Message.css';
 
 class Message extends Component {
 
-    state = { data: [],
+    state = {
+        data: [],
         Message: '',
-    activeMood: this.activeMood };
+        activeUser: '',
+        activeMood: ''
+    };
 
+    constructor(props) {
+        super(props);
+       
+    
+        this.addMessage = this.addMessage.bind(this);
+        this.sendMessage = this.sendMessage.bind(this);
+      
+       
+    
+    }
+    componentWillReceiveProps(props){
+        console.log("Message State:");
+     
+        this.setState({activeUser:props.activeUser});
+        this.setState({activeMood: props.activeMood});
+   
+        console.dir(this.state);
+    }
+   
     messageCreated = (e) => {
         this.setState({ Message: e.target.value });
     }
@@ -16,15 +38,14 @@ class Message extends Component {
         let pituus = this.state.Message.length;
         if (pituus > 160) {
 
-            this.state.Message.trim('a', 'e', 'i', 'o', 'u', 'y', 'å', 'ä', 'ö');
-            console.log(this.state.Message);
+            let trimmattu = this.state.Message.replace(/[aeiouyåäö]/gi, '')
+            this.setState({ Message: trimmattu });
 
-            this.setState({ Message: this.state.Message.replace(/[aeiouyåäö]/gi, '') });
-
+            // console.log(this.state.Message.replace(/[aeiouyåäö]/gi, ''));
 
         }
     }
-    componentDidMount(){
+    componentDidMount() {
         this.getMessagesAndUpdate();
     }
     getMessagesAndUpdate = () => {
@@ -35,13 +56,15 @@ class Message extends Component {
     } //tämäkin on joku Annin hämärä funktio
 
     addMessage = (msg) => {
+        msg.User_Id = this.state.activeUser.Id;
+        msg.Emoijtag = this.state.activeMood;
+        this.checkLength();
         addNewMessage(msg, function () {
             this.getMessagesAndUpdate();
         }.bind(this));
     }
     sendMessage = (e) => {
         e.preventDefault();
-        this.checkLength();
         this.addMessage(this.state); //tässä on iso onglema 
         this.setState({ Message: '' });
     }
@@ -49,7 +72,7 @@ class Message extends Component {
         console.log(this.state);
         return (
             <div className="message">
-                <textarea className="tekstibox" rows="1" cols="35" placeholder="Write your message here!" value={this.state.Message} onChange={this.messageCreated} /><br/>
+                <textarea className="tekstibox" rows="1" cols="35" placeholder="Write your message here!" value={this.state.Message} onChange={this.messageCreated} /><br />
                 <input className="submitMessage" type="submit" value="Send message" onClick={this.sendMessage} />
             </div>
         )

@@ -7,11 +7,12 @@ class PostList extends Component {
 
     state = {
         data: [],
-        activeMood: this.activeMood
+        // activeMood: this.activeMood
     }
     constructor(props){
         super(props)
-        this.updateMessages=this.updateMessages.bind(this)
+        this.updateMessages=this.updateMessages.bind(this);
+
     }
     componentDidMount(){
         fetch("api/posts/")
@@ -21,7 +22,10 @@ class PostList extends Component {
                     data: json,
                 });
             });
+            
+     
     }
+    
     updateMessages(messages){
         this.setState({
             data: messages
@@ -42,7 +46,7 @@ class PostList extends Component {
         return (
             <div className="postList">
                 {messages}
-                <Message data={this.state.data} activeMood={this.state.activeMood} updateMessages={this.updateMessages} />
+                <Message data={this.state.data} activeMood={this.props.activeMood} updateMessages={this.updateMessages} activeUser={this.props.activeUser} />
             </div>
         )
     }

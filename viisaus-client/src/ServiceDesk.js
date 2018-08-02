@@ -20,7 +20,7 @@ export function getMessages(callback) {
 }
 
 export function addNewMessage(msg, callback){
-    msg.user_id=1;
+    // msg.user_id=1;
     fetch( "api/posts/",{
      method: 'POST',
      headers: {'Content-Type': 'application/json'},

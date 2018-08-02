@@ -101,7 +101,6 @@ namespace visdom_api.Controllers
             //}
             //else
             //{
-                post.Emoijtag = "kakka";
                 post.Time = DateTime.Now;
                 db.Posts.Add(post);
             //}
