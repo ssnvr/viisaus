@@ -27,16 +27,16 @@ class App extends Component {
       console.log("lol")
     }
   }
-  
+
   activateUser = (user) => this.setState({ activeUser: user });
 
   render = () => {
     return (
       <div className="App">
-     
+
         {this.state.activeUser === null && <LandingPage activateUser={this.activateUser}/>}
         {this.state.activeUser != null && this.state.activeMood === null && <Valikko changeMood={this.changeMood}/>}
-        {this.state.activeMood != null && <PostList data={this.state.data} handleVote={this.handleVote}/>}
+        {this.state.activeMood != null && <PostList data={this.state.data} handleVote={this.handleVote} activeMood={this.state.activeMood}/>}
 
       </div>
     )
