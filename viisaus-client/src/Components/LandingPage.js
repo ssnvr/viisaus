@@ -4,8 +4,8 @@ import Create from './Create';
 import './LandingPage.css';
 
 class LandingPage extends Component {
-    state = { registered: true }
-
+    state = { registered: true}
+    
     changeRegistered = () => {
       this.setState({
           registered: false,
@@ -17,7 +17,7 @@ class LandingPage extends Component {
         registered: true,
       })
     }
-
+    
     render = () => {
         return (
             <div className="landing">
