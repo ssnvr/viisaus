@@ -60,7 +60,7 @@ namespace visdom_api.Controllers
                 return NotFound();
             }
 
-            return Ok(returnPosts.AsQueryable());
+            return Ok(returnPosts.OrderByDescending(p => p.Vote).AsQueryable());
         }
 
         // PUT: api/Posts/5

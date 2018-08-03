@@ -11,7 +11,6 @@ class PostList extends Component {
 
 
   constructor(props){
-    console.log("constructor")
     super(props);
     this.state = {
       data: [],
@@ -26,7 +25,6 @@ class PostList extends Component {
   }
 
   componentDidMount(){
-      console.log("componentDidMount")
     this.setState({
       isLoading: true,
     });
@@ -36,9 +34,7 @@ class PostList extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log("componentDidUpdate", this.props.activeMood, this.state.activeMood)
     if (this.props.activeMood !== prevProps.activeMood) {
-      console.log("componentDidUpdateWithinIf", this.props.activeMood, this.state.activeMood)
       this.setState({
         isLoading: true,
       });
@@ -49,7 +45,6 @@ class PostList extends Component {
   }
 
   getAllPosts() {
-    console.log("getAllPosts")
     this.setState({
       isLoading: true,
     });
@@ -60,19 +55,14 @@ class PostList extends Component {
   }
 
   updateMessages(posts) {
-    console.log("updateMessages", posts)
     this.setState({
       data: posts,
       isLoading: false,
       activeMood: this.props.activeMood,
     });
   }
-  fakeUpdateMessages(posts) {
-    console.log("updateMessages", posts)
-  }
 
   render() {
-    console.log("render")
     const {
       handleVote
     } = this.props;
@@ -84,9 +74,9 @@ class PostList extends Component {
 
     return (
       <div>
-        <Valikko 
-          changeMood={this.props.changeMood} 
-          deactivateUser={this.props.deactivateUser} 
+        <Valikko
+          changeMood={this.props.changeMood}
+          deactivateUser={this.props.deactivateUser}
           getAllPosts={this.getAllPosts}
         />
         {this.state.isLoading && <Spinner />}

@@ -23,16 +23,6 @@ class Message extends Component {
     this.setState({ Message: e.target.value });
   }
 
-  checkLength() {
-    let pituus = this.state.Message.length;
-    if (pituus > 160) {
-
-
-      let trimmattu = this.state.Message.replace(/[aeiouyåäö]/gi, '')
-      this.setState({ Message: trimmattu });
-    }
-  }
-
   componentDidMount() {
     this.props.updateMessages(this.props.data);
   }
@@ -46,7 +36,6 @@ class Message extends Component {
   addMessage = (msg) => {
     msg.User_Id = this.state.activeUser.Id;
     msg.Emoijtag = this.state.activeMood;
-    this.checkLength();
     addNewMessage(msg, function () {
       this.getMessagesAndUpdate();
     }.bind(this));
@@ -60,7 +49,7 @@ class Message extends Component {
   }
   render() {
     return (
-      
+
             <footer className="pohja">
               <div className="msggroup">
                   <textarea className="tekstibox" rows="1" cols="35" wrap="soft" placeholder="Write your message here!" value={this.state.Message} onChange={this.messageCreated} minLength="5" maxLength="160" />
