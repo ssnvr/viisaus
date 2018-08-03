@@ -28,12 +28,9 @@ class Post extends Component {
     let post = this.props.data;
     post.Vote++
     putVote(post, function(res) {
-      console.log(res);
       this.setState({
         Vote: this.state.Vote + 1
       })
-      console.log("upvote")
-      console.dir(this.state.Vote)
 
     }.bind(this))
   }
@@ -45,15 +42,13 @@ class Post extends Component {
       this.setState({
         Vote: this.state.Vote -1
       })
-      console.log("downvote")
-      console.dir(this.state.Vote)
     }.bind(this))
   }
   render() {
     return(
       <div className="card">
         <div className="card-body">
-          <h5 className="card-title"> {this.props.data.Emoijtag} {this.state.Vote}</h5> 
+          <h5 className="card-title"> {this.props.data.Emoijtag} {this.state.Vote}</h5>
           <p className="card-text">{this.state.Message}</p>
           <Vote postId={this.state.Id} handleVoteUp={this.handleVoteUp} handleVoteDown={this.handleVoteDown}/>
         </div>
