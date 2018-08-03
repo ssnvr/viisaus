@@ -22,9 +22,9 @@ class LandingPage extends Component {
         return (
             <div className="landing">
                 {!this.state.registered &&
-                    <div className="divi">
-                        <p className="backbutton" onClick={this.props.backToLogin}> 👈</p>
-                        <p className="backbutton2" onClick={this.props.backToLogin}>BACK</p>
+                    <div className="divi" onClick={this.backToLogin}>
+                        <p className="backbutton" > 👈</p>
+                        <p className="backbutton2" >BACK</p>
                     </div>}
                 <h1 className="paaotsikko">Visdom</h1>
                 {this.state.registered &&
