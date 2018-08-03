@@ -1,15 +1,9 @@
-/* @media only screen and (max-width: 400px) { */
+
    .valikko {
     float: left;
     position: fixed;
    
    }
-    /* .valikkopala {
-        background-color: antiquewhite;
-        width: 5vh;
-        border-radius: 25px;
-        margin-left: 2vh;
-    } */
     .V {
         font-family: 'Pacifico', cursive;
         font-size: 6.5vh;
@@ -35,9 +29,5 @@
             color: white;
             font-size: 3vh;
         }
-      /* .nav-item {
-          margin-top: -2vh;
-          margin-bottom: -2vh; 
-       }  */
-    /* } */
+
     

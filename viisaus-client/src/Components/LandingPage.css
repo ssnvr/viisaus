@@ -11,4 +11,30 @@
     position: relative;
     top: 20%;
 }
-
+.divi {
+    float:left;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    border-radius: 25px;
+    padding-right: 3vw;
+    padding-left: 3vw;
+    margin-left: 5vw;
+    margin-right: 1.4vw;
+    margin-top: 3vh;
+    height: 4vh;
+}
+.backbutton {
+    font-size: 2vh;
+    margin-top: 0vh;
+    margin-right: 1vw;
+    float:left;
+ 
+}
+.backbutton2 {
+    font-size: 2vh;
+    font-weight: 700;
+    color: #cb2d3e !important;
+    margin-top: 0.6vh;
+    float:right;
+}
